@@ -1,0 +1,340 @@
+body {
+    color: white;
+    background-color: #121212;
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 600;
+    margin-left: 5rem;
+    padding-top: 5rem;
+    font-size: 1.7rem;
+    letter-spacing: 0.15rem;
+}
+h3 {
+     margin-left: 5rem;
+     font-weight: 200;
+     letter-spacing: 0.15rem;
+     font-size: 1rem;
+     padding-bottom: 1rem;
+     margin-top: -0.7rem;
+
+}
+p {
+    font-size: 0.95rem;
+    font-weight: 200;
+    margin-left: 5rem;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    max-width: 100%;
+    line-height: 1.4rem;
+
+}
+.index2 {
+    max-width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0vw;
+}
+#page1 {
+  height: 100vh;
+  position: relative;
+}
+#intro {
+  background-color: #181818;
+  width: 100vw;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  box-shadow: 0px 0px 7px black;
+ }
+
+
+button {
+    padding: 0.75rem 1.5rem;
+    margin: 2rem 0rem 5rem 5rem;
+    text-transform: uppercase;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+}
+button:hover {
+  background-color: #D9D9D9;
+}
+   
+  /*page 2*/
+      #intro2 {
+        width: 100vw;
+        box-shadow:0;
+       }
+
+      #intro2 h1 {
+        font-weight: 600;
+        margin-left: 5rem;
+        padding-top: 5rem;
+        margin-top: 0rem;
+        font-size: 1.7rem;
+        letter-spacing: 0.15rem;
+      }
+      #intro2 h3 {
+        margin-left: 5rem;
+        font-weight: 200;
+        letter-spacing: 0.15rem;
+        font-size: 1rem;
+        padding-bottom: 1rem;
+        margin-top: -0.7rem;
+      }
+      #intro2 p {
+        font-size: 0.95rem;
+        font-weight: 200;
+        margin-left: 5rem;
+        max-width: 60%;
+        line-height: 1.4rem;
+      }
+      .index2 {
+        max-width: 75%;
+        margin-right: auto;
+        margin-left: auto;
+      }
+      table,
+      th,
+      td {
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      table {
+        width: 100%;
+        border: 1px solid #ffffff70;
+        margin-bottom: 1rem;
+      }
+      #likert {
+        text-align: left;
+        background-color: #313131;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-right: 1px solid #ffffff70;
+      }
+      th {
+        text-align: center;
+        padding: 0.5rem 1rem;
+        max-width: 6rem;
+        min-width: 6rem;
+        font-size: 0.85rem;
+      }
+
+      td {
+        text-align: center;
+        font-size: 0.85rem;
+      }
+
+      td:nth-child(1) {
+        border-right: 1px solid #ffffff70;
+      }
+      .question-text {
+        text-align: left;
+        padding: 1rem;
+      }
+      .questions {
+        margin: 0rem 3rem 0rem 3rem;
+        padding: 2rem;
+      }
+      .backtable {
+        background-color: #313131;
+      }
+      .backtable-soft {
+        background-color: #31313150;
+      }
+      #intro2 button {
+        padding: 0.75rem 1.5rem;
+        margin: 0rem 0rem 5rem 5rem;
+        text-transform: uppercase;
+        background-color: white;
+        border-radius: 10px;
+        border: none;
+    }
+
+  /*page 3*/
+
+  #page3 {
+    height: 100vh;
+    position: relative;
+  }
+  #intro3 {
+    background-color: #181818;
+    width: 100vw;
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    box-shadow: 0px 0px 7px black;
+   }
+  /*page 4*/
+
+  .decision-making {
+    grid-template-columns: 1fr;
+    text-align: center;
+    margin-top: 8vw;
+  }
+
+  .grid-choice {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2vw;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10vw;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  .playlist-choice{
+    background-color: #181818;
+    box-shadow: 0px 0px 7px black;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 75%;
+  }
+  .playlist-choice:hover {
+    background-color: #313131;
+  }
+
+  h2 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+  }
+  .grid-choice a {
+    color: white;
+    text-decoration: none;
+  }
+
+    /*page 5*/
+    #intro5 {
+      width: 100vw;
+      margin-top: 0rem;
+     }
+
+    #intro5 h1 {
+      font-weight: 600;
+      margin-left: 5rem;
+      padding-top: 5rem;
+      margin-top: 0rem;
+      font-size: 1.7rem;
+      letter-spacing: 0.15rem;
+    }
+    #intro5 h3 {
+      margin-left: 5rem;
+      font-weight: 200;
+      letter-spacing: 0.15rem;
+      font-size: 1rem;
+      padding-bottom: 1rem;
+      margin-top: -0.7rem;
+    }
+    #intro5 p {
+      font-size: 0.95rem;
+      font-weight: 200;
+      margin-left: 5rem;
+      max-width: 60%;
+      line-height: 1.4rem;
+    }
+  
+    #intro5 button {
+      padding: 0.75rem 1.5rem;
+      margin: 0rem 0rem 5rem 5rem;
+      text-transform: uppercase;
+      background-color: white;
+      border-radius: 10px;
+      border: none;
+  }
+  
+    .grid-survey {
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #181818;
+      box-shadow: 0px 0px 7px black;
+      padding: 2rem 5rem 2rem 5rem;
+    }
+    /*
+    .grid-survey .question-text {
+      width: 30vw;
+    }
+
+    .grid-survey .item1 {
+      grid-column: 1;
+      grid-row: 1;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 3vw;
+    }
+ 
+    .grid-survey .item2 {
+      grid-column: 1/5;
+      grid-row: 2;
+    }
+
+    .index5 {
+      text-align: center;
+      grid-column: 1/5;
+    }
+    .survey-fill {
+      grid-column: 1/5;
+      grid-row: 1;
+    }
+     .grid-survey .playlist-choice:hover {
+      background-color: #181818;
+    }*/
+
+    /*page 7*/
+
+    #page7 {
+      height: 100vh;
+      position: relative;
+    }
+    #intro7 {
+      background-color: #181818;
+      width: 100vw;
+      text-align: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      box-shadow: 0px 0px 7px black;
+     }
+     #intro7 h1 {
+      padding-top: 0rem;
+  }
+      #intro7 p {
+        padding-bottom: 5rem;
+      }
+      .icon-done {
+        text-align: center;
+        padding-left: 4rem;
+      }
+
+      /*page 8*/
+      .progress {
+        text-align: center;
+        padding-top: 2rem;
+      }
+      hr {
+        width: 1rem;
+        border-color: #1ad760;
+        display: inline-block;
+        border-width: 0.5px;
+        vertical-align: middle;
+      }

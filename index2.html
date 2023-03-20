@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main>
+      <div class="progress">
+        <iconify-icon icon="fa-solid:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="vaadin:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>
+        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+      </div>
+        <div id="intro2">
+            <h1>Survey - part I</h1>  
+            <h3>Preference Elicitation</h3>
+            <p class="index2">In this section, we will start by asking you a few questions to determine your preferred genre. This information will help us to tailor the survey to your personal preferences and ensure that the questions are relevant and engaging to you. For this section, you will be asked to rate your preferences on a scale from one (strongly disagree) to five (strongly agree). Please answer each question honestly and to the best of your ability, based on your personal preferences.</p>
+            <div id="musicForm" class="questions">
+              <table>
+                <tr class="backtable">
+                  <th id="likert">Likert Scale</th>
+                  <th>Yes</th>
+                  <th>No</th>
+                </tr>
+                <tr class="backtable-soft">
+                  <td class="question-text">I enjoy listening to classical music.</td>
+                  <td><input id="a1" type="radio" name="classical" value="yes" ></td>
+                  <td><input id="a2" type="radio" name="classical" value="no"></td>
+                </tr>
+                <tr class="backtable">
+                  <td class="question-text">I like to listen to pop music.</td>
+                  <td><input id="b1" type="radio" name="pop" value="yes"></td>
+                  <td><input id="b2" type="radio" name="pop" value="no"></td>
+                </tr>
+                <tr class="backtable-soft">
+                  <td class="question-text">I enjoy country music.</td>
+                  <td><input id="c1" type="radio" name="country" value="yes"></td>
+                  <td><input id="c2" type="radio" name="country" value="no"></td>
+                </tr>
+                <tr class="backtable">
+                  <td class="question-text">I enjoy listening to rock music.</td>
+                  <td><input id="d1" type="radio" name="rock" value="yes"></td>
+                  <td><input id="d2" type="radio" name="rock" value="no"></td>
+                </tr>
+                <tr class="backtable-soft">
+                  <td class="question-text">I am a fan of dance music.</td>
+                  <td><input id="e1" type="radio" name="dance" value="yes"></td>
+                  <td><input id="e2" type="radio" name="dance" value="no"></td>
+                </tr>  
+                <tr class="backtable">
+                  <td class="question-text">I like to listen to jazz music.</td>
+                  <td><input id="f1" type="radio" name="jazz" value="yes"></td>
+                  <td><input id="f2" type="radio" name="jazz" value="no"></td>
+                </tr>
+                <tr class="backtable-soft">
+                  <td class="question-text">I enjoy listening to R&B music.</td>
+                  <td><input id="g1" type="radio" name="R&B" value="yes"></td>
+                  <td><input id="g2" type="radio" name="R&B" value="no"></td>
+                </tr>
+                <tr class="backtable">
+                  <td class="question-text">I prefer indie music.</td>
+                  <td><input id="h1" type="radio" name="indie" value="yes"></td>
+                  <td><input id="h1" type="radio" name="indie" value="no"></td>
+                </tr>
+                <tr class="backtable-soft">
+                  <td class="question-text">I enjoy listening to metal music.</td>
+                  <td><input id="i1" type="radio" name="metal" value="yes"></td>
+                  <td><input id="i2" type="radio" name="metal" value="no"></td>
+                </tr>
+              </table>
+            </div>
+            <button onclick="fn1()" id="continueButton">Continue</button>
+        </div>
+    </main>
+	<script src="index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+  </body>
+</html>
