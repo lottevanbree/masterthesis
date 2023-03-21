@@ -103,7 +103,8 @@ const titles = document.querySelectorAll("h2");
 
 // Assign random personalized titles to h2 elements
 titles.forEach((title) => {
-  const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
+  const obj_keys = Object.keys(personalizedPlaylists)
+  const randomIndex = obj_keys[Math.floor(Math.random() *obj_keys.length)];
   title.innerHTML = personalizedPlaylists[randomIndex];
 });
 
