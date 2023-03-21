@@ -16,29 +16,36 @@ function fn1() {
     alert("Please make sure all sections are filled in.");
   }
 }*/
+// localStorage.setItem('selectedGenres', null);
+
 let selectedGenres = [];
+let selectedNumber = 0;
 function fn1() {
   const table = document.querySelector('#musicForm table');
   const rows = document.querySelectorAll('.question');
 
   for (let i = 0; i < rows.length; i++) {
     const inputs = rows[i].querySelectorAll('input');
-
     if (inputs[0].checked) {
       selectedGenres.push(inputs[0].name);
+      selectedNumber++;
+    }
+    if (inputs[1].checked) {
+      selectedNumber++;
     }
 
-    if (inputs[1].checked) {
-      selectedGenres.push(inputs[1].name);
-    }
+
+    // if (inputs[1].checked) {
+    //   selectedGenres.push(inputs[1].name);
+    // }
   }
 
-  if (selectedGenres.length < (rows.length)) {
+  if (selectedNumber < (rows.length)) {
     alert("Please make sure all sections are filled in.");
     selectedGenres = [];
   } 
 
-  if (selectedGenres.length === (rows.length)) {
+  if (selectedNumber === (rows.length)) {
     // All questions have been answered
     localStorage.setItem('selectedGenres', JSON.stringify(selectedGenres));
     window.location.href = "index3.html";
@@ -48,7 +55,7 @@ function fn1() {
   }
 }
 
-
+console.log(selectedGenres);
 
 // page 4
 
@@ -76,8 +83,8 @@ playlistChoices.forEach((choice) => {
 });
 
 const pPlaylistTitles = {  // Personalized playlists  
-  "Pop":        [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
-  "Rock":       [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
+  "pop":        [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
+  "rock":       [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
   "Hip Hop":    [    "Your Daily Hip Hop Mix",    "Hip Hop Discoveries for You",    "Hip Hop Essentials Tailored to You",    "Hip Hop Gems Handpicked for You",    "Your Personal Hip Hop Collection"  ],
   "Electronic": [    "Your Electronic Essentials",    "Electronic Discoveries for You",    "Personalized Electronic Mix",    "Electronic Gems Tailored to You",    "Electronic Beats Just for You"  ] ,
   "Classic":        [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
@@ -95,13 +102,13 @@ const pPlaylistTitles = {  // Personalized playlists
   "Electronic": [    "Top Electronic Hits of All Time",    "The Ultimate Electronic Playlist",    "Best Electronic Songs of the Decade",    "Classic Electronic"  ]
  };
 
-
+console.log("selected:", useSelectedGenres);
 // Personalized genre to show
-const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
+const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)]; //should be the array selectedGenre[] created at page2
 // const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
-//const randomSelectedGenre = useSelectedGenres
+// const randomSelectedGenre = useSelectedGenres
 //const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
-
+console.log(randomSelectedGenre);
 // Filter personalized playlists by genre and flatten the array
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
