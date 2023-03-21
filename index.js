@@ -16,7 +16,6 @@ function fn1() {
     alert("Please make sure all sections are filled in.");
   }
 }*/
-
 let selectedGenres = [];
 function fn1() {
   const table = document.querySelector('#musicForm table');
@@ -47,7 +46,6 @@ function fn1() {
     console.log(selectedGenres);
   }
 }
-
 
 /*
 // page 4
