@@ -21,6 +21,8 @@ const playlistTitles = [  // Personalized playlists
   [    "Top Electronic Hits of All Time",    "The Ultimate Electronic Playlist",    "Best Electronic Songs of the Decade",    "Classic Electronic"  ]
 ];
 
+//selectedGenre[] 
+
 // Personalized genre to show
 const genre = "Pop";
 
@@ -28,7 +30,7 @@ const genre = "Pop";
 const personalizedPlaylists = playlistTitles.filter(playlist => playlist[0].includes(genre))
   .reduce((acc, curr) => acc.concat(curr.slice(1)), []);
 
-// Display personalized playlist titles in h2 elements
+  
 const titles = document.querySelectorAll("h2");
 personalizedPlaylists.forEach((title, index) => {
   if (index < titles.length) {
