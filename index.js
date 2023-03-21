@@ -17,42 +17,36 @@ function fn1() {
   }
 }*/
 
-// get all input elements
-var inputs = document.getElementsByTagName("input");
-
-// initialize a variable to keep track of the number of answered questions
-var answeredCount = 0;
-
-// loop through each input element
-for (var i = 0; i < inputs.length; i++) {
-  // check if the input is a radio button and is checked
-  if (inputs[i].type === "radio" && inputs[i].checked) {
-    // increment the answered count
-    answeredCount++;
-  }
-}
 let selectedGenres = [];
 function fn1() {
   const table = document.querySelector('#musicForm table');
-  const rows = table.querySelectorAll('tr');
+  const rows = document.querySelectorAll('.question');
 
-  for (let i = 1; i < rows.length; i++) {
+  for (let i = 0; i < rows.length; i++) {
     const inputs = rows[i].querySelectorAll('input');
 
     if (inputs[0].checked) {
       selectedGenres.push(inputs[0].name);
     }
+
+    if (inputs[1].checked) {
+      selectedGenres.push(inputs[1].name);
+    }
   }
 
-  if (selectedGenres.length != (rows.length-1)) {
+  if (selectedGenres.length < (rows.length)) {
     alert("Please make sure all sections are filled in.");
-  } else if (answeredCount == inputs.length / 2) {
+    selectedGenres = [];
+  } 
+
+  if (selectedGenres.length === (rows.length)) {
+    // All questions have been answered
     window.location.href = "index3.html";
+    selectedGenres = [];
   } else {
     console.log(selectedGenres);
   }
 }
-
 
 
 /*
