@@ -124,8 +124,6 @@ titles.forEach((title) => {
 });
 
 //page 4II
-
-
 document.querySelectorAll(".randomTitle").forEach(function(el) {
 const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
 const randomTitle = npPlaylistTitles[randomIndex]; 
