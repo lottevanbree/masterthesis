@@ -62,7 +62,6 @@ function fn1() {
 //titles are displayed in h2
 
 const storedGenres = localStorage.getItem('selectedGenres');
-console.log(storedGenres);
 const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
 
 // Get all elements with class "playlist-choice"
@@ -92,14 +91,16 @@ const pPlaylistTitles = {  // Personalized playlists
 
 
 // Personalized genre to show
-const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
+// const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
 // const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
+const randomSelectedGenre = useSelectedGenres
+//const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
 
 // Filter personalized playlists by genre and flatten the array
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
 const titles = document.querySelectorAll("h2");
-console.log(titles)
+
 // Assign random personalized titles to h2 elements
 titles.forEach((title) => {
   const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
@@ -111,6 +112,7 @@ titles.forEach((title) => {
 /* Personalized genre to show
 const genre = selectedGenre;
 
+>>>>>>> 4e9c9a1c8bd384ca5e739eb8461ba31276d42613
 // Filter personalized playlists by genre and flatten the array
 const personalizedPlaylists = pPlaylistTitles;
 const nonpersonalizedPlaylist = npPlaylistTitles;*/
