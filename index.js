@@ -16,6 +16,21 @@ function fn1() {
     alert("Please make sure all sections are filled in.");
   }
 }*/
+
+// get all input elements
+var inputs = document.getElementsByTagName("input");
+
+// initialize a variable to keep track of the number of answered questions
+var answeredCount = 0;
+
+// loop through each input element
+for (var i = 0; i < inputs.length; i++) {
+  // check if the input is a radio button and is checked
+  if (inputs[i].type === "radio" && inputs[i].checked) {
+    // increment the answered count
+    answeredCount++;
+  }
+}
 let selectedGenres = [];
 function fn1() {
   const table = document.querySelector('#musicForm table');
@@ -28,15 +43,17 @@ function fn1() {
       selectedGenres.push(inputs[0].name);
     }
   }
-  if (selectedGenres.length != (rows.length)) {
+
+  if (selectedGenres.length != (rows.length-1)) {
     alert("Please make sure all sections are filled in.");
-  } else if (selectedGenres.length != (rows.length)) {
-    // All questions have been answered
+  } else if (answeredCount == inputs.length / 2) {
     window.location.href = "index3.html";
   } else {
     console.log(selectedGenres);
   }
 }
+
+
 
 /*
 // page 4
