@@ -91,9 +91,9 @@ const pPlaylistTitles = {  // Personalized playlists
 
 
 // Personalized genre to show
-// const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
+const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
 // const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
-const randomSelectedGenre = useSelectedGenres
+//const randomSelectedGenre = useSelectedGenres
 //const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
 
 // Filter personalized playlists by genre and flatten the array
