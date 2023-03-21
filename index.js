@@ -19,8 +19,9 @@ function fn1() {
 // localStorage.setItem('selectedGenres', null);
 
 let selectedGenres = [];
-let selectedNumber = 0;
+
 function fn1() {
+  let selectedNumber = 0;
   const table = document.querySelector('#musicForm table');
   const rows = document.querySelectorAll('.question');
 
@@ -33,11 +34,6 @@ function fn1() {
     if (inputs[1].checked) {
       selectedNumber++;
     }
-
-
-    // if (inputs[1].checked) {
-    //   selectedGenres.push(inputs[1].name);
-    // }
   }
 
   if (selectedNumber < (rows.length)) {
