@@ -62,7 +62,7 @@ function fn1() {
 //titles are displayed in h2
 
 const storedGenres = localStorage.getItem('selectedGenres');
-//const useSelectedGenres = storedGenres ? JSON.parse(storedGenres);
+const useSelectedGenres = storedGenres ? JSON.parse(storedGenres):null;
 
 // Get all elements with class "playlist-choice"
 const playlistChoices = document.querySelectorAll(".playlist-choice");
@@ -75,27 +75,27 @@ playlistChoices.forEach((choice) => {
   });
 });
 
-const pPlaylistTitles = [  // Personalized playlists  
-  [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
-  [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
-  [    "Your Daily Hip Hop Mix",    "Hip Hop Discoveries for You",    "Hip Hop Essentials Tailored to You",    "Hip Hop Gems Handpicked for You",    "Your Personal Hip Hop Collection"  ],
-  [    "Your Electronic Essentials",    "Electronic Discoveries for You",    "Personalized Electronic Mix",    "Electronic Gems Tailored to You",    "Electronic Beats Just for You"  ] 
-  ];
+const pPlaylistTitles ={  // Personalized playlists  
+ "Pop" :    [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
+  "Rock" :  [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
+  "Hip Hop": [    "Your Daily Hip Hop Mix",    "Hip Hop Discoveries for You",    "Hip Hop Essentials Tailored to You",    "Hip Hop Gems Handpicked for You",    "Your Personal Hip Hop Collection"  ],
+  "Electronic" : [    "Your Electronic Essentials",    "Electronic Discoveries for You",    "Personalized Electronic Mix",    "Electronic Gems Tailored to You",    "Electronic Beats Just for You"  ] 
+};
  
- const npPlaylistTitles = [ // Non Personalized playlists
-  [    "Top Pop Hits of All Time",    "The Ultimate Pop Playlist",    "Best Pop Songs of the Decade",    "Classic Pop Anthems",    "Pop Party Mix"  ],
-  [    "Greatest Rock Hits of All Time",    "The Ultimate Rock Playlist",    "Best Classic Rock Songs",    "Hard Rock Anthems",    "Rock Road Trip Mix"  ],
-  [    "Top Hip Hop Hits of All Time",    "The Ultimate Hip Hop Playlist",    "Best Hip Hop Songs of the Decade",    "Classic Hip Hop Anthems",    "Hip Hop Party Mix"  ],
-  [    "Top Electronic Hits of All Time",    "The Ultimate Electronic Playlist",    "Best Electronic Songs of the Decade",    "Classic Electronic"  ]
-];
+ const npPlaylistTitles = {// Non Personalized playlists
+  "Pop": [    "Top Pop Hits of All Time",    "The Ultimate Pop Playlist",    "Best Pop Songs of the Decade",    "Classic Pop Anthems",    "Pop Party Mix"  ],
+  "Rock":  [    "Greatest Rock Hits of All Time",    "The Ultimate Rock Playlist",    "Best Classic Rock Songs",    "Hard Rock Anthems",    "Rock Road Trip Mix"  ],
+  "Hip Hop": [    "Top Hip Hop Hits of All Time",    "The Ultimate Hip Hop Playlist",    "Best Hip Hop Songs of the Decade",    "Classic Hip Hop Anthems",    "Hip Hop Party Mix"  ],
+  "Electronic": [    "Top Electronic Hits of All Time",    "The Ultimate Electronic Playlist",    "Best Electronic Songs of the Decade",    "Classic Electronic"  ]
+ };
 
 
 // Personalized genre to show
-const randomSelectedGenre = "Rock"; //should be the array selectedGenre[] created at page2
-const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
+const randomSelectedGenre = useSelectedGenres
+//const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
 
 // Filter personalized playlists by genre and flatten the array
-const personalizedPlaylists = pPlaylistTitles[genreIndex];
+const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
 const titles = document.querySelectorAll("h2");
 
