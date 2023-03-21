@@ -1,23 +1,5 @@
 // page 2
 
-
-/*
-function fn1() {
-  var a1 = document.getElementById("a1");
-  var a2 = document.getElementById("a2");
-  
-  if (a1.checked==true) {
-    selectedGenres.push(a1.name);
-    console.log(selectedGenres);
-    console.log("yes")
-  } else if (a2.checked==true){
-    console.log('no')
-  } else { 
-    alert("Please make sure all sections are filled in.");
-  }
-}*/
-// localStorage.setItem('selectedGenres', null);
-
 let selectedGenres = [];
 
 function fn1() {
@@ -53,9 +35,19 @@ function fn1() {
 
 console.log(selectedGenres);
 
-// page 4
+// page 3
+function IorII() {
+  const randomNum = Math.random();
+  if (randomNum < 0.5) {
+    window.location.href = "index4I.html";;
+  } else {
+    window.location.href = "index4II.html";
+  }
+}
 
-//selectedGenre[] -> should be stored to use at page 4
+// page 4I
+
+
 // selectedGenre[] -> names of genre replaced by titles for that genre [pop, rock] -> 
 // selectedGenres[ //pop [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ], //rock [titles]....]
 // I - random all personalized
@@ -90,20 +82,33 @@ const pPlaylistTitles = {  // Personalized playlists
   "indie":    [    "Your Daily Hip Hop Mix",    "Hip Hop Discoveries for You",    "Hip Hop Essentials Tailored to You",    "Hip Hop Gems Handpicked for You",   "Your Personal Hip Hop Collection"  ],
   "metal": [    "Your Electronic Essentials",    "Electronic Discoveries for You",    "Personalized Electronic Mix",    "Electronic Gems Tailored to You",    "Electronic Beats Just for You"  ] 
   };
+  const npPlaylistTitles = [
+    "Top Pop Hits of All Time",
+    "The Ultimate Pop Playlist",
+    "Best Pop Songs of the Decade",
+    "Classic Pop Anthems",
+    "Pop Party Mix",
+    "Greatest Rock Hits of All Time",
+    "The Ultimate Rock Playlist",
+    "Best Classic Rock Songs",
+    "Hard Rock Anthems",
+    "Rock Road Trip Mix",
+    "Top Hip Hop Hits of All Time",
+    "The Ultimate Hip Hop Playlist",
+    "Best Hip Hop Songs of the Decade",
+    "Classic Hip Hop Anthems",
+    "Hip Hop Party Mix",
+    "Top Electronic Hits of All Time",
+    "The Ultimate Electronic Playlist",
+    "Best Electronic Songs of the Decade",
+    "Classic Electronic"
+  ];
  
- const npPlaylistTitles = { // Non Personalized playlists
-  "Pop":        [    "Top Pop Hits of All Time",    "The Ultimate Pop Playlist",    "Best Pop Songs of the Decade",    "Classic Pop Anthems",    "Pop Party Mix"  ],
-  "Rock":       [    "Greatest Rock Hits of All Time",    "The Ultimate Rock Playlist",    "Best Classic Rock Songs",    "Hard Rock Anthems",    "Rock Road Trip Mix"  ],
-  "Hip Hop":    [    "Top Hip Hop Hits of All Time",    "The Ultimate Hip Hop Playlist",    "Best Hip Hop Songs of the Decade",    "Classic Hip Hop Anthems",    "Hip Hop Party Mix"  ],
-  "Electronic": [    "Top Electronic Hits of All Time",    "The Ultimate Electronic Playlist",    "Best Electronic Songs of the Decade",    "Classic Electronic"  ]
- };
 
 console.log("selected:", useSelectedGenres);
 // Personalized genre to show
-const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)]; //should be the array selectedGenre[] created at page2
-// const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
-// const randomSelectedGenre = useSelectedGenres
-//const genreIndex = ["Pop", "Rock", "Hip Hop", "Electronic"].indexOf(randomSelectedGenre); //in the array should be the selectedGenre[];
+const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)];
+
 console.log(randomSelectedGenre);
 // Filter personalized playlists by genre and flatten the array
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
@@ -118,12 +123,11 @@ titles.forEach((title) => {
   delete personalizedPlaylists[randomIndex];
 });
 
-//selectedGenre[] 
+//page 4II
 
-/* Personalized genre to show
-const genre = selectedGenre;
 
->>>>>>> 4e9c9a1c8bd384ca5e739eb8461ba31276d42613
-// Filter personalized playlists by genre and flatten the array
-const personalizedPlaylists = pPlaylistTitles;
-const nonpersonalizedPlaylist = npPlaylistTitles;*/
+document.querySelectorAll(".randomTitle").forEach(function(el) {
+const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
+const randomTitle = npPlaylistTitles[randomIndex]; 
+el.innerHTML = randomTitle; 
+});
