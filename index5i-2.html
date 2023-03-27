@@ -20,13 +20,13 @@
         <hr>
         <iconify-icon icon="fa-solid:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
         <hr>
-        <iconify-icon icon="vaadin:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <iconify-icon icon="fa-solid:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
         <hr>
-        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <iconify-icon icon="fa-solid:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
         <hr>
-        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
-        <hr>
-        <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <iconify-icon icon="fa-solid:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        <hr>    
+        <iconify-icon icon="vaadin:dot-circle"  style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
         <hr>
         <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
       </div>
@@ -110,18 +110,10 @@
           alert("Please make sure all sections are filled in.");
           console.log(selectedNumber);
         } 
-        function IIIorIV() {
-              const randomNum = Math.random();
-              if (randomNum < 0.5) {
-                window.location.href = "index4III.html";
-              } else {
-                window.location.href = "index4IV.html";
-              }
-            };
 
         if (selectedNumber === (rows.length-1)) {
           // All questions have been answered;
-          IIIorIV();
+          window.location.href = "index6.html";
         } else {
           console.log("fail")
         }

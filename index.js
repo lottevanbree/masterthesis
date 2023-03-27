@@ -60,15 +60,28 @@ const storedGenres = localStorage.getItem('selectedGenres');
 const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
 
 // Get all elements with class "playlist-choice"
-const playlistChoices = document.querySelectorAll(".playlist-choice");
+const playlistChoicesI = document.querySelectorAll(".firstChoice");
 
 // Loop through each element and add event listener
-playlistChoices.forEach((choice) => {
+playlistChoicesI.forEach((choice) => {
   choice.addEventListener("click", () => {
     console.log("hello")
     window.location.href = "index5.html";
   });
 });
+
+// Get all elements with class "playlist-choice"
+const playlistChoicesII = document.querySelectorAll(".secondChoice");
+
+// Loop through each element and add event listener
+playlistChoicesII.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    console.log("hello")
+    window.location.href = "index5-2.html";
+  });
+});
+
+const playlistChoices = document.querySelectorAll(".playlist-choice");
 
 const pPlaylistTitles = {  // Personalized playlists  
   "pop":        [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",    "Pop Bangers Handpicked for You"  ],
