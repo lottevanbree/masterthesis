@@ -187,6 +187,19 @@ button:hover {
     transform: translateY(-50%);
     box-shadow: 0px 0px 7px black;
   }
+
+  .centermiddleChoice {
+    width: 100vw;
+    position: relative;
+    height: 25vh;
+    width: 100vw;
+    margin: 0;
+    position: absolute;
+    top: 30%;
+    padding-top: 2rem;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
   .decision-making {
     grid-template-columns: 1fr;
     text-align: center;
@@ -204,6 +217,24 @@ button:hover {
     width: 60vw;
     max-width: 75%;
     }
+    .grid-choiceI {
+      position: absolute;
+      top: 32%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      }
+      .grid-choiceII {
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 3rem;
+        width: 60vw;
+        max-width: 75%;
+        } 
+
 
   img {
     max-width: 100%;
@@ -236,11 +267,10 @@ button:hover {
     text-decoration: none;
   }
 
-
     /*page 5*/
     #intro5 {
       width: 100vw;
-      margin-top: 0rem;
+      margin-top: 10rem;
      }
 
     #intro5 h1 {
@@ -263,8 +293,7 @@ button:hover {
       font-size: 0.95rem;
       font-weight: 200;
       margin-left: 5rem;
-      max-width: 60%;
-      line-height: 1.4rem;
+     line-height: 1.4rem;
     }
   
     #intro5 button {
@@ -284,35 +313,6 @@ button:hover {
       box-shadow: 0px 0px 7px black;
       padding: 2rem 5rem 2rem 5rem;
     }
-    /*
-    .grid-survey .question-text {
-      width: 30vw;
-    }
-
-    .grid-survey .item1 {
-      grid-column: 1;
-      grid-row: 1;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 3vw;
-    }
- 
-    .grid-survey .item2 {
-      grid-column: 1/5;
-      grid-row: 2;
-    }
-
-    .index5 {
-      text-align: center;
-      grid-column: 1/5;
-    }
-    .survey-fill {
-      grid-column: 1/5;
-      grid-row: 1;
-    }
-     .grid-survey .playlist-choice:hover {
-      background-color: #181818;
-    }*/
 
     /*page 7*/
 
@@ -453,7 +453,7 @@ button:hover {
             /*page 5*/
             #intro5 {
               width: 100vw;
-              margin-top: 0rem;
+              margin-top: 10rem;
              }
         
             #intro5 h1 {
