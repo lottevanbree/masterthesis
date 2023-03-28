@@ -46,7 +46,7 @@
         <div class="questions">
           <table>
             <tr class="backtable">
-              <th id="likert">Likert Scale</th>
+              <th id="likert">Questions</th>
               <th>Strongly Disagree</th>
               <th>Disagree</th>
               <th>Neutral</th>
@@ -54,7 +54,7 @@
               <th>Strongly Agree</th>
             </tr>
             <tr class="backtable-soft question">
-              <td class="question-text">The playlist title suggests that the songs were chosen based on my personal taste.</td>
+              <td class="question-text">The playlist suggests that it contains songs that were chosen based on my personal taste.</td>
               <td><input type="radio" name="q1" value="1"></td>
               <td><input type="radio" name="q1" value="2"></td>
               <td><input type="radio" name="q1" value="3"></td>
@@ -62,7 +62,7 @@
               <td><input type="radio" name="q1" value="5"></td>
             </tr>
             <tr class="backtable question">
-              <td class="question-text">The playlist title implies that the songs were chosen based on my listening history or preferences.</td>
+              <td class="question-text">The playlist implies that it contains songs that were chosen based on my listening history or preferences.</td>
               <td><input type="radio" name="q2" value="1"></td>
               <td><input type="radio" name="q2" value="2"></td>
               <td><input type="radio" name="q2" value="3"></td>
@@ -70,7 +70,7 @@
               <td><input type="radio" name="q2" value="5"></td>
             </tr>
             <tr class="backtable-soft question">
-              <td class="question-text">The playlist title suggests that the songs were selected based on my favorite genres and artists.</td>
+              <td class="question-text">This playlist probably contains songs that are based on my favorite genres and artists.</td>
               <td><input type="radio" name="q3" value="1"></td>
               <td><input type="radio" name="q3" value="2"></td>
               <td><input type="radio" name="q3" value="3"></td>
@@ -78,7 +78,7 @@
               <td><input type="radio" name="q3" value="5"></td>
             </tr>
             <tr class="backtable">
-              <td class="question-text question">I chose this playlist based on my current mood or emotions.</td>
+              <td class="question-text question">I chose this playlist based on how I currently feel.</td>
               <td><input type="radio" name="q4" value="1"></td>
               <td><input type="radio" name="q4" value="2"></td>
               <td><input type="radio" name="q4" value="3"></td>
@@ -86,7 +86,7 @@
               <td><input type="radio" name="q4" value="5"></td>
             </tr>
             <tr class="backtable-soft question">
-              <td class="question-text">The playlist title made me feel excited to listen to this playlist.</td>
+              <td class="question-text">I am excited to listen to this playlist.</td>
               <td><input type="radio" name="q5" value="1"></td>
               <td><input type="radio" name="q5" value="2"></td>
               <td><input type="radio" name="q5" value="3"></td>
@@ -94,7 +94,7 @@
               <td><input type="radio" name="q5" value="5"></td>
             </tr>  
             <tr class="backtable question">
-              <td class="question-text">The playlist I choose seems to be personalized based on the title.</td>
+              <td class="question-text">The playlist I choose seems to be personalized <!--based on my listening history and preferences-->. </td>
               <td><input type="radio" name="q6" value="1"></td>
               <td><input type="radio" name="q6" value="2"></td>
               <td><input type="radio" name="q6" value="3"></td>
@@ -102,14 +102,6 @@
               <td><input type="radio" name="q6" value="5"></td>
             </tr>
             <tr class="backtable-soft question">
-              <td class="question-text">I think this playlist will be personalized for me based on my listening history and preferences.</td>
-              <td><input type="radio" name="q7" value="1"></td>
-              <td><input type="radio" name="q7" value="2"></td>
-              <td><input type="radio" name="q7" value="3"></td>
-              <td><input type="radio" name="q7" value="4"></td>
-              <td><input type="radio" name="q7" value="5"></td>
-            </tr>
-            <tr class="backtable question">
               <td class="question-text">I expect this playlist to be tailored to my individual preferences rather than just a general selection of popular songs.</td>
               <td><input type="radio" name="q8" value="1"></td>
               <td><input type="radio" name="q8" value="2"></td>
@@ -124,42 +116,42 @@
     </main>
     <script src="index.js"></script>
     <script>
-      function fn2() {
-    let selectedNumber = 0;
-    const table = document.querySelector('table');
-    const rows = document.querySelectorAll('.question');
+              function fn2() {
+            let selectedNumber = 0;
+            const table = document.querySelector('table');
+            const rows = document.querySelectorAll('.question');
 
-    for (let i = 0; i < rows.length; i++) {
-      const inputs = rows[i].querySelectorAll('input[type="radio"]');
-      
-      for (let j = 0; j < inputs.length; j++) {
-        if (inputs[j].checked) {
-          selectedNumber++;
-          console.log(selectedNumber);
-        }
-      }
-    }
+            for (let i = 0; i < rows.length; i++) {
+              const inputs = rows[i].querySelectorAll('input[type="radio"]');
+              
+              for (let j = 0; j < inputs.length; j++) {
+                if (inputs[j].checked) {
+                  selectedNumber++;
+                  console.log(selectedNumber);
+                }
+              }
+            }
 
-    if (selectedNumber < (rows.length-1)) {
-      alert("Please make sure all sections are filled in.");
-      console.log(selectedNumber);
-    } 
+            if (selectedNumber < (rows.length-1)) {
+              alert("Please make sure all sections are filled in.");
+              console.log(selectedNumber);
+            } 
 
-    if (selectedNumber === (rows.length-1)) {
-      window.location.href = "index5i.html";
-    } else {
-      console.log("fail")
-    }
-    
-  }
-    const storedTitle = localStorage.getItem('clickedTitleI');
-    console.log(storedTitle); 
+            if (selectedNumber === (rows.length-1)) {
+              window.location.href = "index5i.html";
+            } else {
+              console.log("fail")
+            }
+            
+          }
+            const storedTitle = localStorage.getItem('clickedTitleI');
+            console.log(storedTitle); 
 
-    function showTitle() {
-      const presentTitle = document.getElementById("choiceMade");
-      presentTitle.innerHTML = storedTitle;
-    }
-    showTitle();
+            function showTitle() {
+              const presentTitle = document.getElementById("choiceMade");
+              presentTitle.innerHTML = storedTitle;
+            }
+            showTitle();
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
