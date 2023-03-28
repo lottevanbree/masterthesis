@@ -173,7 +173,6 @@ button:hover {
    }
   /*page 4*/
   .centermiddle {
-    width: 100vw;
     position: relative;
     height: 55vh;
     background-color: #181818;
@@ -213,8 +212,7 @@ button:hover {
     transform: translate(-50%, -30%);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 3rem;
-    width: 60vw;
+    gap: 2rem;
     max-width: 75%;
     }
     .grid-choiceI {
@@ -230,11 +228,10 @@ button:hover {
         transform: translate(-50%, -30%);
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: 3rem;
+        gap: 2rem;
         width: 60vw;
         max-width: 75%;
         } 
-
 
   img {
     max-width: 100%;
@@ -249,10 +246,20 @@ button:hover {
     text-align: left;
     padding: 1rem;
     border-radius: 10px;
-    width: 100%;
-    max-width: 10rem;
-    min-width: 7rem;
+    max-width: 9rem;
+    min-width: 9rem;
   }
+
+  .chosenItem {
+    background-color: #181818;
+    box-shadow: 0px 0px 7px black;
+    text-align: left;
+    padding: 1rem;
+    border-radius: 10px;
+    max-width: 9rem;
+    min-width: 9rem;
+  }
+
   .playlist-choice:hover {
     background-color: #313131;
   }

@@ -32,11 +32,13 @@
       </div>
       <div class="centermiddleChoice">
         <div class="grid-choiceI">
-          <div class="playlist-choice item1 firstChoice">
+          <div class="chosenItem">
             <img src="assets/visual.jpg" alt="">
-            <h2 style="font-size: 0.8rem;" id="title1">hkhjdkhjkfh jdk</h2>
+            <h2 style="font-size: 0.8rem;" id="choiceMade"> 
+            <!-- HERE IT SHOULD SHOW THE CHOSEN H2 TITLEON PAGE 4 I/II -->
+            </h2>
           </div>
-      </div>
+       </div>
       <div id="intro5">
         <h1>Survey - part II</h1>  
         <h3>Questions based on the playlist chosen</h3>
@@ -149,6 +151,16 @@
     console.log("fail")
   }
 }
+
+const storedTitle = localStorage.getItem('clickedTitleII');
+    console.log(storedTitle); // display the stored title in the console
+
+
+    function showTitle() {
+      const presentTitle = document.getElementById("choiceMade");
+      presentTitle.innerHTML = storedTitle;
+    }
+    showTitle();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
   </body>

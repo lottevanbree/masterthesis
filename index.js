@@ -1,50 +1,3 @@
-// page 2
-
-let selectedGenres = [];
-
-function fn1() {
-  let selectedNumber = 0;
-  const table = document.querySelector('#musicForm table');
-  const rows = document.querySelectorAll('.question');
-
-  for (let i = 0; i < rows.length; i++) {
-    const inputs = rows[i].querySelectorAll('input');
-    if (inputs[0].checked) {
-      selectedGenres.push(inputs[0].name);
-      selectedNumber++;
-    }
-    if (inputs[1].checked) {
-      selectedNumber++;
-    }
-  }
-
-  if (selectedNumber < (rows.length)) {
-    alert("Please make sure all sections are filled in.");
-    selectedGenres = [];
-  } 
-
-  if (selectedNumber === (rows.length)) {
-    // All questions have been answered
-    localStorage.setItem('selectedGenres', JSON.stringify(selectedGenres));
-    window.location.href = "index3.html";
-    selectedGenres = [];
-  } else {
-    console.log(selectedGenres);
-  }
-}
-
-console.log(selectedGenres);
-
-// page 3
-function IorII() {
-  const randomNum = Math.random();
-  if (randomNum < 0.5) {
-    window.location.href = "index4I.html";;
-  } else {
-    window.location.href = "index4II.html";
-  }
-}
-
 // page 4I
 
 
@@ -58,25 +11,29 @@ function IorII() {
 
 const storedGenres = localStorage.getItem('selectedGenres');
 const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+const title1 = document.getElementById('title1');
+const title2 = document.getElementById('title2');
+const title3 = document.getElementById('title3');
+const title4 = document.getElementById('title4');
 
-// Get all elements with class "playlist-choice"
 const playlistChoicesI = document.querySelectorAll(".firstChoice");
 
-// Loop through each element and add event listener
 playlistChoicesI.forEach((choice) => {
   choice.addEventListener("click", () => {
-    console.log("hello")
+    console.log("hello");
+    const clickedTitleI = choice.querySelector('.title').innerHTML; 
+    localStorage.setItem('clickedTitleI', clickedTitleI); 
     window.location.href = "index5.html";
   });
 });
 
-// Get all elements with class "playlist-choice"
 const playlistChoicesII = document.querySelectorAll(".secondChoice");
 
-// Loop through each element and add event listener
 playlistChoicesII.forEach((choice) => {
   choice.addEventListener("click", () => {
     console.log("hello")
+    const clickedTitleII = choice.querySelector('.title').innerHTML; 
+    localStorage.setItem('clickedTitleII', clickedTitleII); 
     window.location.href = "index5-2.html";
   });
 });
@@ -126,7 +83,7 @@ console.log(randomSelectedGenre);
 // Filter personalized playlists by genre and flatten the array
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
-const titles = document.querySelectorAll("h2");
+const titles = document.querySelectorAll(".personalizedTitle");
 
 // Assign random personalized titles to h2 elements
 titles.forEach((title) => {
@@ -137,8 +94,18 @@ titles.forEach((title) => {
 });
 
 //page 4II
-document.querySelectorAll(".randomTitle").forEach(function(el) {
+document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
 const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
 const randomTitle = npPlaylistTitles[randomIndex]; 
 el.innerHTML = randomTitle; 
 });
+
+// Store selected genre and personalized playlist title in local storage
+localStorage.setItem('selectedGenre', randomSelectedGenre);
+localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists));
+
+
+//page 4III
+
+
+//page 4IV 

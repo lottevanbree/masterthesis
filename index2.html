@@ -92,6 +92,42 @@
         </div>
     </main>
 	<script src="index.js"></script>
+  <script>
+    let selectedGenres = [];
+
+function fn1() {
+  let selectedNumber = 0;
+  const table = document.querySelector('#musicForm table');
+  const rows = document.querySelectorAll('.question');
+
+  for (let i = 0; i < rows.length; i++) {
+    const inputs = rows[i].querySelectorAll('input');
+    if (inputs[0].checked) {
+      selectedGenres.push(inputs[0].name);
+      selectedNumber++;
+    }
+    if (inputs[1].checked) {
+      selectedNumber++;
+    }
+  }
+
+  if (selectedNumber < (rows.length)) {
+    alert("Please make sure all sections are filled in.");
+    selectedGenres = [];
+  } 
+
+  if (selectedNumber === (rows.length)) {
+    // All questions have been answered
+    localStorage.setItem('selectedGenres', JSON.stringify(selectedGenres));
+    window.location.href = "index3.html";
+    selectedGenres = [];
+  } else {
+    console.log(selectedGenres);
+  }
+}
+
+console.log(selectedGenres);
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
   </body>
 </html>

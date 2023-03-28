@@ -32,9 +32,11 @@
       </div>
       <div class="centermiddleChoice">
         <div class="grid-choiceI">
-          <div class="playlist-choice item1 firstChoice">
+          <div class="chosenItem">
             <img src="assets/visual.jpg" alt="">
-            <h2 style="font-size: 0.8rem;" id="title1">hkhjdkhjkfh jdk</h2>
+            <h2 style="font-size: 0.8rem;" id="choiceMade"> 
+            <!-- HERE IT SHOULD SHOW THE CHOSEN H2 TITLEON PAGE 4 I/II -->
+            </h2>
           </div>
        </div>
       <div id="intro5">
@@ -120,36 +122,51 @@
         <button onclick="fn2()">Continue</button>
     </div>
     </main>
-	<script>
-    function fn2() {
-  let selectedNumber = 0;
-  const table = document.querySelector('table');
-  const rows = document.querySelectorAll('.question');
+    <script src="index.js"></script>
+    <script>
+      function fn2() {
+    let selectedNumber = 0;
+    const table = document.querySelector('table');
+    const rows = document.querySelectorAll('.question');
 
-  for (let i = 0; i < rows.length; i++) {
-    const inputs = rows[i].querySelectorAll('input[type="radio"]');
-    
-    for (let j = 0; j < inputs.length; j++) {
-      if (inputs[j].checked) {
-        selectedNumber++;
-        console.log(selectedNumber);
+    for (let i = 0; i < rows.length; i++) {
+      const inputs = rows[i].querySelectorAll('input[type="radio"]');
+      
+      for (let j = 0; j < inputs.length; j++) {
+        if (inputs[j].checked) {
+          selectedNumber++;
+          console.log(selectedNumber);
+        }
       }
     }
-  }
 
-  if (selectedNumber < (rows.length-1)) {
-    alert("Please make sure all sections are filled in.");
-    console.log(selectedNumber);
-  } 
+    if (selectedNumber < (rows.length-1)) {
+      alert("Please make sure all sections are filled in.");
+      console.log(selectedNumber);
+    } 
 
-  if (selectedNumber === (rows.length-1)) {
-    // All questions have been answered;
-    window.location.href = "index5i.html";
-  } else {
-    console.log("fail")
+    if (selectedNumber === (rows.length-1)) {
+      // All questions have been answered;
+      window.location.href = "index5i.html";
+    } else {
+      console.log("fail")
+    }
+    
+    
   }
-}
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+    const storedTitle = localStorage.getItem('clickedTitleI');
+    console.log(storedTitle); // display the stored title in the console
+
+
+    function showTitle() {
+      const presentTitle = document.getElementById("choiceMade");
+      presentTitle.innerHTML = storedTitle;
+    }
+    showTitle();
+
+    
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
   </body>
 </html>
