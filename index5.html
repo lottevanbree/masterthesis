@@ -146,25 +146,20 @@
     } 
 
     if (selectedNumber === (rows.length-1)) {
-      // All questions have been answered;
       window.location.href = "index5i.html";
     } else {
       console.log("fail")
     }
     
-    
   }
     const storedTitle = localStorage.getItem('clickedTitleI');
-    console.log(storedTitle); // display the stored title in the console
-
+    console.log(storedTitle); 
 
     function showTitle() {
       const presentTitle = document.getElementById("choiceMade");
       presentTitle.innerHTML = storedTitle;
     }
     showTitle();
-
-    
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
