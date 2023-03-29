@@ -28,6 +28,17 @@ playlistChoicesII.forEach((choice) => {
   });
 });
 
+const playlistChoicesIsystem = document.querySelectorAll(".firstSystem");
+
+
+//playlistChoicesIsystem.forEach((choice) => {
+//  console.log("hello");
+ // const titlesPresented = Array.from(choice.querySelectorAll('.title')).map((title) => title.innerHTML);
+ // localStorage.setItem('titlesPresented', JSON.stringify(titlesPresented));
+//  window.location.href = "index5i.html";
+//});
+
+
 const playlistChoices = document.querySelectorAll(".playlist-choice");
 
 const pPlaylistTitles = {  // Personalized playlists  
@@ -57,12 +68,37 @@ const nonpersonalizedPlaylist = npPlaylistTitles;
 const titles = document.querySelectorAll(".personalizedTitle");
 
 // Assign random personalized titles to h2 elements
+/*
 titles.forEach((title) => {
   const obj_keys = Object.keys(personalizedPlaylists)
   const randomIndex = obj_keys[Math.floor(Math.random() *obj_keys.length)];
   title.innerHTML = personalizedPlaylists[randomIndex];
   delete personalizedPlaylists[randomIndex];
+});*/
+
+//with local storage
+let selectedItems = [];
+
+titles.forEach((title) => {
+  const obj_keys = Object.keys(personalizedPlaylists);
+  const randomIndex = obj_keys[Math.floor(Math.random() * obj_keys.length)];
+  const selectedPlaylistH2 = personalizedPlaylists[randomIndex];
+  
+  selectedItems.push(selectedPlaylistH2);
+
+  delete personalizedPlaylists[randomIndex];
+
+  console.log(selectedPlaylistH2);
+
+  localStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
+
+  // Update the title element with the selected item
+  title.innerHTML = selectedPlaylistH2;
 });
+
+// Save the array of selected items to local storage
+localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+
 
 //page 4II
 document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
@@ -71,12 +107,13 @@ const randomTitle = npPlaylistTitles[randomIndex];
 el.innerHTML = randomTitle; 
 });
 
-// Store selected genre and personalized playlist title in local storage
+// Store selected genre and personalized playlist title in local storage page 4
 localStorage.setItem('selectedGenre', randomSelectedGenre);
 localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists));
 
 
-//page 4III
+//page 5i
+
 
 
 //page 4IV 
