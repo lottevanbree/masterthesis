@@ -1,11 +1,9 @@
+
+
 //page 4
 const storedGenres = localStorage.getItem('selectedGenres');
-const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
-const title1 = document.getElementById('title1');
-const title2 = document.getElementById('title2');
-const title3 = document.getElementById('title3');
-const title4 = document.getElementById('title4');
 
+const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
 const playlistChoicesI = document.querySelectorAll(".firstChoice");
 
 playlistChoicesI.forEach((choice) => {
@@ -30,15 +28,6 @@ playlistChoicesII.forEach((choice) => {
 
 const playlistChoicesIsystem = document.querySelectorAll(".firstSystem");
 
-
-//playlistChoicesIsystem.forEach((choice) => {
-//  console.log("hello");
- // const titlesPresented = Array.from(choice.querySelectorAll('.title')).map((title) => title.innerHTML);
- // localStorage.setItem('titlesPresented', JSON.stringify(titlesPresented));
-//  window.location.href = "index5i.html";
-//});
-
-
 const playlistChoices = document.querySelectorAll(".playlist-choice");
 
 const pPlaylistTitles = {  // Personalized playlists  
@@ -53,30 +42,21 @@ const pPlaylistTitles = {  // Personalized playlists
   "indie":         [    "Your Daily Indie Mix",    "Indie Discoveries for You",    "Indie Essentials Tailored to You",    "Indie Gems Handpicked for You",   "Your Personal Indie Collection"  ],
   "metal":         [    "Your Metal Essentials",    "Metal Discoveries for You",    "Personalized Metal Mix",    "Metal Gems Tailored to You",    "Metal Beats Just for You"  ] 
   };
-  const npPlaylistTitles = [ "Top Pop Hits of All Time", "The Ultimate Pop Playlist",  "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix", "Greatest Rock Hits of All Time", "The Ultimate Rock Playlist", "Best Classic Rock Songs", "Hard Rock Anthems", "Rock Road Trip Mix", "Top Hip Hop Hits of All Time", "The Ultimate Hip Hop Playlist",  "Best Hip Hop Songs of the Decade",  "Classic Hip Hop Anthems", "Hip Hop Party Mix", "Top Electronic Hits of All Time", "The Ultimate Electronic Playlist",  "Best Electronic Songs of the Decade", "Classic Electronic"
+  const npPlaylistTitles = [ //non personalized titles
+    "Top Pop Hits of All Time", "The Ultimate Pop Playlist",  "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix", "Greatest Rock Hits of All Time", "The Ultimate Rock Playlist", "Best Classic Rock Songs", "Hard Rock Anthems", "Rock Road Trip Mix", "Top Hip Hop Hits of All Time", "The Ultimate Hip Hop Playlist",  "Best Hip Hop Songs of the Decade",  "Classic Hip Hop Anthems", "Hip Hop Party Mix", "Top Electronic Hits of All Time", "The Ultimate Electronic Playlist",  "Best Electronic Songs of the Decade", "Classic Electronic"
   ];
  
 
 console.log("selected:", useSelectedGenres);
-// Personalized genre to show
+
 const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)];
 
 console.log(randomSelectedGenre);
-// Filter personalized playlists by genre and flatten the array
+
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
 const titles = document.querySelectorAll(".personalizedTitle");
 
-// Assign random personalized titles to h2 elements
-/*
-titles.forEach((title) => {
-  const obj_keys = Object.keys(personalizedPlaylists)
-  const randomIndex = obj_keys[Math.floor(Math.random() *obj_keys.length)];
-  title.innerHTML = personalizedPlaylists[randomIndex];
-  delete personalizedPlaylists[randomIndex];
-});*/
-
-//with local storage
 let selectedItems = [];
 
 titles.forEach((title) => {
@@ -92,11 +72,9 @@ titles.forEach((title) => {
 
   localStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
 
-  // Update the title element with the selected item
   title.innerHTML = selectedPlaylistH2;
 });
 
-// Save the array of selected items to local storage
 localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
 
 
@@ -117,3 +95,31 @@ localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists))
 
 
 //page 4IV 
+
+
+//page 6
+const myForm = document.getElementById('myForm');
+const payload = new FormData(myForm);
+console.log([...payload]);
+
+myForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+const inputs = document.querySelectorAll('input:checked');
+const values = [];
+inputs.forEach(input => {
+values.push('Name: ' + input.name + ' Value: ' + input.value);
+  });
+
+  console.log(values);
+
+  fetch('http://httpbin.org/post'//use own server when ready AWS
+  , {
+    method: "POST",
+    body: payload,
+  })
+
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.log(err));
+});

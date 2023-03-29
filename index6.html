@@ -35,6 +35,7 @@
         <h3>General questions regarding personalisation</h3>
         <p class="index2">The final section of the survey consists of a few questions regarding your own experiences within music streaming platforms. Once you have answered these questions, you can submit your responses and your participation will be complete.</p>
         <div class="questions">
+          <form id="myForm">
           <table>
             <tr class="backtable">
               <th id="likert">Questions</th>
@@ -101,9 +102,8 @@
               <td><input type="radio" name="q7" value="5"></td>
             </tr>
           </table>
-        </div>
-        <button onclick="fn2()">Submit</button>
-    </div>
+        <button type="submit" onclick="fn2()" >Submit</button>
+  </form>
     </main>
 	<script>
     function fn2() {
@@ -133,8 +133,61 @@
   } else {
     console.log("fail")
   }
+
 }
+
+ 
+
+
+      /*
+      const myForm = document.getElementById('myForm');
+    const payload = new FormData(myForm);
+         console.log([...payload]);
+
+      myForm.addEventListener('submit', function(e) {
+
+  let selectedNumber = 0;
+  const table = document.querySelector('table');
+  const rows = document.querySelectorAll('.question');
+
+  for (let i = 0; i < rows.length; i++) {
+    const inputs = rows[i].querySelectorAll('input[type="radio"]');
+    
+    for (let j = 0; j < inputs.length; j++) {
+      if (inputs[j].checked) {
+        selectedNumber++;
+        console.log(selectedNumber);
+      }
+    }
+  }
+
+  if (selectedNumber < (rows.length)) {
+    alert("Please make sure all sections are filled in.");
+    console.log(selectedNumber);
+  } 
+
+  if (selectedNumber === (rows.length)) { 
+    const inputs = document.querySelectorAll('input:checked');
+        const values = [];
+        inputs.forEach(input => {
+          values.push(input.value);
+          values.push(input.name)
+        });
+
+        console.log(values);
+    // All questions have been answered;
+    window.location.href = "index7.html";
+  } else {
+    console.log("fail")
+  }
+
+
+       
+      });*/
+
+
   </script>
+  <script src="index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
   </body>
 </html>
