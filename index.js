@@ -48,10 +48,84 @@ const pPlaylistTitles = {  // Personalized playlists
  
 
 console.log("selected:", useSelectedGenres);
+const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
+const personalizedPlaylists = allSelectedGenres;
+let selectedItems = [];
 
-const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)];
+document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
+  const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
+  const selectedPlaylistH2 = personalizedPlaylists.splice(randomIndex, 1)[0];
+  
+  selectedItems.push(selectedPlaylistH2);
 
-console.log(randomSelectedGenre);
+  console.log(selectedPlaylistH2);
+
+  localStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
+
+  title.innerHTML = selectedPlaylistH2;
+});
+
+if (document.querySelector(".nonPersonalizedTitle")) {
+  const nonpersonalizedPlaylist = npPlaylistTitles;
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
+    const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
+    const randomTitle = npPlaylistTitles[randomIndex]; 
+    el.innerHTML = randomTitle; 
+  });
+}
+
+localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+
+
+/*const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
+const personalizedPlaylists = allSelectedGenres;
+const titles = document.querySelectorAll(".personalizedTitle");
+
+let selectedItems = [];
+if (titles){
+for (let i = 0; i < 4; i++) {
+  const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
+  const selectedPlaylistH2 = personalizedPlaylists.splice(randomIndex, 1)[0];
+  
+  selectedItems.push(selectedPlaylistH2);
+
+  console.log(selectedPlaylistH2);
+
+  localStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
+
+  titles[i].innerText = selectedPlaylistH2;
+}}
+
+localStorage.setItem('selectedItems', JSON.stringify(selectedItems));*/
+
+
+/*const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
+
+const personalizedPlaylists = pPlaylistTitles[allSelectedGenres];
+const nonpersonalizedPlaylist = npPlaylistTitles;
+const titles = document.querySelectorAll(".personalizedTitle");
+const title = document.querySelectorAll("h2");
+
+const selectedPlaylists = [];
+
+while (selectedPlaylists.length < 4 && allSelectedGenres.length > 0) {
+  const randomIndex = Math.floor(Math.random() * allSelectedGenres.length);
+const playlist = allSelectedGenres.splice(randomIndex, 1)[0];
+  selectedPlaylists.push(playlist);
+
+  localStorage.setItem('playlist', JSON.stringify(selectedPlaylists));
+
+  titles.innerHTML = selectedPlaylists;
+}
+
+console.log(selectedPlaylists);
+console.log(playlist)*/
+
+
+
+/*const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)];
+
+console.log(allSelectedGenres);
 
 const personalizedPlaylists = pPlaylistTitles[randomSelectedGenre];
 const nonpersonalizedPlaylist = npPlaylistTitles;
@@ -76,17 +150,18 @@ titles.forEach((title) => {
 });
 
 localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
-
+*/
 
 //page 4II
+/*const nonpersonalizedPlaylist = npPlaylistTitles;
 document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
 const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
 const randomTitle = npPlaylistTitles[randomIndex]; 
 el.innerHTML = randomTitle; 
-});
+});*/
 
 // Store selected genre and personalized playlist title in local storage page 4
-localStorage.setItem('selectedGenre', randomSelectedGenre);
+localStorage.setItem('selectedGenre', allSelectedGenres);
 localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists));
 
 
