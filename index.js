@@ -58,9 +58,11 @@ document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
   
   selectedItems.push(selectedPlaylistH2);
 
+  delete selectedPlaylistH2[randomIndex];
+
   console.log(selectedPlaylistH2);
 
-  localStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
+  sessionStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
 
   title.innerHTML = selectedPlaylistH2;
 });
@@ -70,11 +72,12 @@ if (document.querySelector(".nonPersonalizedTitle")) {
   document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
     const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
     const randomTitle = npPlaylistTitles[randomIndex]; 
+    delete randomTitle[randomIndex];
     el.innerHTML = randomTitle; 
   });
 }
 
-localStorage.setItem('selectedItems', JSON.stringify(selectedItems));
+sessionStorage.setItem('selectedItems', JSON.stringify(selectedItems));
 
 
 /*const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
