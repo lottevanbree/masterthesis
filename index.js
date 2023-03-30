@@ -160,16 +160,6 @@ if (storedNonPersonalizedTitles) {
 sessionStorage.setItem('selectedItemsNp', JSON.stringify(selectedItemsNP));
 console.log(storedNonPersonalizedTitles);
 
-/*
-const nonpersonalizedPlaylist = npPlaylistTitles;
-document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
-const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
-const randomTitle = npPlaylistTitles[randomIndex]; 
-el.innerHTML = randomTitle; 
-});*/
-
-
-
 
 
 /*const randomSelectedGenre = useSelectedGenres[Math.floor(Math.random() * useSelectedGenres.length)];
