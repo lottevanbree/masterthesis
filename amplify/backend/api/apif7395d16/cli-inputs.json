@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/survey/{participantId}": {
+      "name": "/survey/{participantId}",
+      "lambdaFunction": "masterthesis",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

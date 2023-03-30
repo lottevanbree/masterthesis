@@ -35,7 +35,6 @@
         <h3>General questions regarding personalisation</h3>
         <p class="index2">The final section of the survey consists of a few questions regarding your own experiences within music streaming platforms. Once you have answered these questions, you can submit your responses and your participation will be complete.</p>
         <div class="questions">
-          <form id="myForm">
           <table>
             <tr class="backtable">
               <th id="likert">Questions</th>
@@ -62,7 +61,7 @@
               <td><input type="radio" name="general2" value="5"></td>
             </tr>
             <tr class="backtable-soft question">
-              <td class="question-text">Playlist titles that are non descriptive (e.g. "Playlist 1" or "Mixtape") makes the playlists less attractive.</td>
+              <td class="question-text">Playlist titles that are non descriptive (e.g. "Playlist 1" or "Mixtape") make the playlists less attractive.</td>
               <td><input type="radio" name="general3" value="1"></td>
               <td><input type="radio" name="general3" value="2"></td>
               <td><input type="radio" name="general3" value="3"></td>
@@ -93,17 +92,16 @@
               <td><input type="radio" name="general6" value="4"></td>
               <td><input type="radio" name="general6" value="5"></td>
             </tr>
-            <tr class="backtable-soft question">
+            <!--<tr class="backtable-soft question">
               <td class="question-text">When playlists involve personal pronounces like 'my' or 'your' I expect the playlist to be personalized to my taste.</td>
               <td><input type="radio" name="general7" value="1"></td>
               <td><input type="radio" name="general7" value="2"></td>
               <td><input type="radio" name="general7" value="3"></td>
               <td><input type="radio" name="general7" value="4"></td>
               <td><input type="radio" name="general7" value="5"></td>
-            </tr>
+            </tr>-->
           </table>
-        <button type="submit" onclick="fn2()" >Submit</button>
-  </form>
+        <button onclick="fn2()" >Submit</button>
     </main>
 	<script>
     function fn2() {
@@ -130,6 +128,8 @@
   if (selectedNumber === (rows.length)) {
     // All questions have been answered;
     window.location.href = "index7.html";
+    console.log('hi')
+    a = 1; 
   } else {
     console.log("fail")
   }

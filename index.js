@@ -216,7 +216,7 @@ const myForm = document.getElementById('myForm');
 const payload = new FormData(myForm);
 console.log([...payload]);
 
-myForm.addEventListener('submit', function(e) {
+myForm.addEventListener('click', function(e) {
 e.preventDefault();
 
 const inputs = document.querySelectorAll('input:checked');

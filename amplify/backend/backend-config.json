@@ -1,0 +1,43 @@
+{
+  "api": {
+    "apif7395d16": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "masterthesis"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "masterthesis": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_masterthesis_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "masterthesis"
+        }
+      ]
+    },
+    "AMPLIFY_function_masterthesis_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "masterthesis"
+        }
+      ]
+    }
+  }
+}
