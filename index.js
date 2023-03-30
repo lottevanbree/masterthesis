@@ -119,12 +119,56 @@ if (storedSelectedPlaylistH2) {
 
 //NON PERSONALIZED TITLES
 
+
+const storedNonPersonalizedTitles = JSON.parse(sessionStorage.getItem('selectedNpPlaylist'));
+let selectedItemsNp = [];
+
+if (storedNonPersonalizedTitles) {
+  // display the selected titles from session storage
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = storedNonPersonalizedTitles[index];
+  });
+
+  selectedItemsNp = selectedItemsNp.concat(storedNonPersonalizedTitles);
+  console.log(storedNonPersonalizedTitles);
+} else {
+  // if titles are not stored in session storage, pick new ones
+  const nonpersonalizedPlaylist = npPlaylistTitles;
+  const selectedTitlesNP = [];
+
+  while (selectedTitlesNP.length < 4) {
+    const randomIndex = Math.floor(Math.random() * nonpersonalizedPlaylist.length);
+    const title = nonpersonalizedPlaylist[randomIndex];
+    if (!selectedTitlesNP.includes(title)) {
+      selectedTitlesNP.push(title);
+    }
+  }
+  
+  // assign each title element to a different title from the selectedTitles array
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = selectedTitlesNP[index];
+    
+  });
+  
+  // save the selected titles array to session storage
+  sessionStorage.setItem('selectedNpPlaylist', JSON.stringify(selectedTitlesNP));
+  
+  // save the selected items array to session storage
+  selectedItemsNp = selectedItemsNp.concat(selectedTitlesNP);
+}
+
+sessionStorage.setItem('selectedItemsNp', JSON.stringify(selectedItemsNP));
+console.log(storedNonPersonalizedTitles);
+
+/*
 const nonpersonalizedPlaylist = npPlaylistTitles;
 document.querySelectorAll(".nonPersonalizedTitle").forEach(function(el) {
 const randomIndex = Math.floor(Math.random() * npPlaylistTitles.length);
 const randomTitle = npPlaylistTitles[randomIndex]; 
 el.innerHTML = randomTitle; 
-});
+});*/
+
+
 
 
 
