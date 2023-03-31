@@ -3,7 +3,7 @@
   "paths": {
     "/survey/{participantId}": {
       "name": "/survey/{participantId}",
-      "lambdaFunction": "masterthesis",
+      "lambdaFunction": "masterthesisasw",
       "permissions": {
         "setting": "open"
       }

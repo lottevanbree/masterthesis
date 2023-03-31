@@ -1,6 +1,6 @@
 {
   "api": {
-    "apif7395d16": {
+    "apide8df11e": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "masterthesis"
+          "resourceName": "masterthesisasw"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,26 +16,26 @@
     }
   },
   "function": {
-    "masterthesis": {
+    "masterthesisasw": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_masterthesis_deploymentBucketName": {
+    "AMPLIFY_function_masterthesisasw_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "masterthesis"
+          "resourceName": "masterthesisasw"
         }
       ]
     },
-    "AMPLIFY_function_masterthesis_s3Key": {
+    "AMPLIFY_function_masterthesisasw_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "masterthesis"
+          "resourceName": "masterthesisasw"
         }
       ]
     }

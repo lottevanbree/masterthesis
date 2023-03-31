@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "masterthesis",
+            "masterthesisasw",
             {
               "Fn::Join": [
                 "",
                 [
-                  "masterthesis",
+                  "masterthesisasw",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "masterthesisLambdaRolef8f7cc83",
+            "masterthesisLambdaRole4ab6ea41",
             {
               "Fn::Join": [
                 "",
                 [
-                  "masterthesisLambdaRolef8f7cc83",
+                  "masterthesisLambdaRole4ab6ea41",
                   "-",
                   {
                     "Ref": "env"
