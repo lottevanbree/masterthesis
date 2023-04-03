@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
+    	<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
@@ -43,6 +47,7 @@
         <h1>Survey - part II</h1>  
         <h3>Questions based on the playlist chosen</h3>
         <p class="index2">Now that you have chosen the playlist displayed on top of the page, we would like to ask you a few questions to get more insights.</p>
+        <!--<form id="myForm">-->
         <div class="questions">
           
           <table>
@@ -94,42 +99,23 @@
               <td><input type="radio" name="choiceI5" value="4"></td>
               <td><input type="radio" name="choiceI5" value="5"></td>
             </tr>  
-            <!--<tr class="backtable question">
-              <td class="question-text" p5q6>The playlist I choose seems to be based on my listening history and preferences. </td>-->
+            <tr class="backtable question">
+              <td class="question-text" p5q6>I expect this playlist to be tailored to my individual preferences rather than just a general selection of popular songs.</td>
               <td><input type="radio" name="choiceI6" value="1"></td>
               <td><input type="radio" name="choiceI6" value="2"></td>
               <td><input type="radio" name="choiceI6" value="3"></td>
               <td><input type="radio" name="choiceI6" value="4"></td>
               <td><input type="radio" name="choiceI6" value="5"></td>
             </tr>
-            <tr class="backtable-soft question">
-              <td class="question-text p5q7">I expect this playlist to be tailored to my individual preferences rather than just a general selection of popular songs.</td>
-              <td><input type="radio" name="choiceI7" value="1"></td>
-              <td><input type="radio" name="choiceI7" value="2"></td>
-              <td><input type="radio" name="choiceI7" value="3"></td>
-              <td><input type="radio" name="choiceI7" value="4"></td>
-              <td><input type="radio" name="choiceI7" value="5"></td>
-            </tr>
           </table>
         </div>
-        <button onclick="fn2()">Continue</button>
+        <!-- </form>-->
+        <button onclick="PreSubForm(); fn2();">Continue</button>
     </div>
 
     </main>
     <script src="index.js"></script>
     <script>
-      //save data collected on the page to later recall and submit on page 6 -- items lost when clicking to early on continue
-            function saveData() {
-            const inputChoiceI = document.querySelectorAll('input:checked');
-            const valueChoiceI = [];
-            
-            inputChoiceI.forEach(input => {
-              valueChoiceI.push({ name: input.name, value: input.value });
-            });
-            
-            sessionStorage.setItem('selectedInput', JSON.stringify(valueChoiceI));
-              }
-//-------------------------------------
               function fn2() {
             let selectedNumber = 0;
             const table = document.querySelector('table');
@@ -152,13 +138,26 @@
             } 
 
             if (selectedNumber === (rows.length-1)) {
-              saveData();
               window.location.href = "index5i.html";
             } else {
               console.log("fail")
             }
             
           }
+
+          function PreSubForm() {
+          const inputChoiceI = document.querySelectorAll('input:checked');
+          const values = [];
+
+          inputChoiceI.forEach(input => {
+            values.push(`${encodeURIComponent(input.name)}=${encodeURIComponent(input.value)}`);
+          });
+
+          const formData = values.join('&');
+
+          sessionStorage.setItem('page5FormData', formData);
+        }
+
             const storedTitle = localStorage.getItem('clickedTitleI');
             console.log(storedTitle); 
 

@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
@@ -34,6 +38,7 @@
         <h1>Survey - part III</h1>  
         <h3>General questions regarding personalisation</h3>
         <p class="index2">The final section of the survey consists of a few questions regarding your own experiences within music streaming platforms. Once you have answered these questions, you can submit your responses and your participation will be complete.</p>
+       <form id="myForm">
         <div class="questions">
           <table>
             <tr class="backtable">
@@ -92,19 +97,42 @@
               <td><input type="radio" name="general6" value="4"></td>
               <td><input type="radio" name="general6" value="5"></td>
             </tr>
-            <!--<tr class="backtable-soft question">
-              <td class="question-text">When playlists involve personal pronounces like 'my' or 'your' I expect the playlist to be personalized to my taste.</td>
-              <td><input type="radio" name="general7" value="1"></td>
-              <td><input type="radio" name="general7" value="2"></td>
-              <td><input type="radio" name="general7" value="3"></td>
-              <td><input type="radio" name="general7" value="4"></td>
-              <td><input type="radio" name="general7" value="5"></td>
-            </tr>-->
           </table>
-        <button onclick="fn2()" >Submit</button>
+          </div>
+        </form>
+        <button style="margin-left: 5rem;" onclick="SubForm(); fn2();" >Submit</button>
     </main>
 	<script>
-    function fn2() {
+function SubForm() {
+    var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
+    var page4III_IVFormData = sessionStorage.getItem("page4III_IVFormData");
+    var page5FormData = sessionStorage.getItem("page5FormData");
+    var page5iFormData = sessionStorage.getItem("page5iFormData");
+    var page5_2FormData = sessionStorage.getItem("page5-2FormData");
+    var page5i_2FormData = sessionStorage.getItem("page5i-2FormData");
+
+
+    console.log(page5FormData);
+    var page6FormData = $("#myForm").serialize();
+    
+    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData;
+    console.log(formData);
+  
+    $.ajax({
+      url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
+      type: "post",
+      data: formData,
+      success: function() {
+        window.location.href = "index7.html";
+        alert("Form Data Submitted")
+      },
+      error: function() {
+        alert("There was an error")
+      }
+    });
+}
+
+  function fn2() {
   let selectedNumber = 0;
   const table = document.querySelector('table');
   const rows = document.querySelectorAll('.question');
@@ -126,66 +154,13 @@
   } 
 
   if (selectedNumber === (rows.length)) {
-    // All questions have been answered;
     window.location.href = "index7.html";
     console.log('hi')
-    a = 1; 
   } else {
     console.log("fail")
   }
 
 }
-
- 
-
-
-      /*
-      const myForm = document.getElementById('myForm');
-    const payload = new FormData(myForm);
-         console.log([...payload]);
-
-      myForm.addEventListener('submit', function(e) {
-
-  let selectedNumber = 0;
-  const table = document.querySelector('table');
-  const rows = document.querySelectorAll('.question');
-
-  for (let i = 0; i < rows.length; i++) {
-    const inputs = rows[i].querySelectorAll('input[type="radio"]');
-    
-    for (let j = 0; j < inputs.length; j++) {
-      if (inputs[j].checked) {
-        selectedNumber++;
-        console.log(selectedNumber);
-      }
-    }
-  }
----------------
-  if (selectedNumber < (rows.length)) {
-    alert("Please make sure all sections are filled in.");
-    console.log(selectedNumber);
-  } 
-
-  if (selectedNumber === (rows.length)) { 
-    const inputs = document.querySelectorAll('input:checked');
-        const values = [];
-        inputs.forEach(input => {
-          values.push(input.value);
-          values.push(input.name)
-        });
-
-        console.log(values);
-    // All questions have been answered;
-    window.location.href = "index7.html";
-  } else {
-    console.log("fail")
-  }
-
-
-       
-      });*/
-
-
   </script>
   <script src="index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>

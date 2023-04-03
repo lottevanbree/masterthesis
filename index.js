@@ -66,13 +66,14 @@ document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
   sessionStorage.setItem('selectedPlaylist', JSON.stringify(selectedPlaylistH2));
 
   title.innerHTML = selectedPlaylistH2;
-});*/
+});
 
 //PERSONALIZED TITLES
 
 const storedGenres = localStorage.getItem('selectedGenres');
 const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
 console.log("selected:", useSelectedGenres);
+console.log('hi');
 
 const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
 const personalizedPlaylists = allSelectedGenres;
@@ -80,7 +81,7 @@ const personalizedPlaylists = allSelectedGenres;
 let selectedItems = [];
 
 const storedSelectedPlaylistH2 = JSON.parse(sessionStorage.getItem('selectedPlaylist'));
-if (storedSelectedPlaylistH2) {
+if (!storedSelectedPlaylistH2) {
   selectedItems.push(storedSelectedPlaylistH2);
   console.log(storedSelectedPlaylistH2);
 
@@ -99,6 +100,7 @@ if (storedSelectedPlaylistH2) {
     const title = personalizedPlaylists[randomIndex];
     if (!selectedTitles.includes(title)) {
       selectedTitles.push(title);
+
     }
   }
   console.log(selectedTitles);
@@ -110,11 +112,59 @@ if (storedSelectedPlaylistH2) {
   });
   
   // save the selected titles array to session storage
-  sessionStorage.setItem('selectedPlaylist', JSON.stringify(selectedTitles));
-  
+  sessionStorage.setItem('selectedTitles', JSON.stringify(selectedTitles));
+  console.log(selectedTitles)
   // save the selected items array to session storage
   selectedItems = selectedTitles;
+}*/
+
+
+const storedGenres = localStorage.getItem('selectedGenres');
+const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+console.log("selected:", useSelectedGenres);
+console.log('hi');
+
+const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
+const personalizedPlaylists = allSelectedGenres;
+
+let selectedItems = [];
+
+const storedSelectedTitles = JSON.parse(sessionStorage.getItem('selectedTitles'));
+if (storedSelectedTitles && storedSelectedTitles.length === 4) {
+  // retrieve the selected titles from session storage
+  selectedItems = storedSelectedTitles;
+
+  // display the selected playlist titles
+  document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
+    title.innerHTML = storedSelectedTitles[index];
+    console.log('1');
+  });
+} else {
+  console.log("selected:", useSelectedGenres);
+
+  // generate a new set of selected titles
+  const selectedTitles = [];
+  while (selectedTitles.length < 4 && personalizedPlaylists.length > 0) {
+    const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
+    const title = personalizedPlaylists.splice(randomIndex, 1)[0];
+    selectedTitles.push(title);
+  }
+  console.log(selectedTitles);
+
+  // assign each title element to a different title from the selectedTitles array
+  document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
+    title.innerHTML = selectedTitles[index];
+    console.log('2');
+  });
+
+  // save the selected titles array to session storage
+  sessionStorage.setItem('selectedTitles', JSON.stringify(selectedTitles));
+  console.log(selectedTitles);
+
+  // save the selected items array
+  selectedItems = selectedTitles;
 }
+
 
 
 //NON PERSONALIZED TITLES

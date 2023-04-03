@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <main>
@@ -94,54 +98,62 @@
               <td><input type="radio" name="choiceII5" value="5"></td>
             </tr>  
             <tr class="backtable question">
-              <td class="question-text">The playlist I choose seems to be personalized <!--based on my listening history and preferences-->.</td>
+              <td class="question-text">I expect this playlist to be tailored to my individual preferences rather than just a general selection of popular songs.</td>
               <td><input type="radio" name="choiceII6" value="1"></td>
               <td><input type="radio" name="choiceII6" value="2"></td>
               <td><input type="radio" name="choiceII6" value="3"></td>
               <td><input type="radio" name="choiceII6" value="4"></td>
               <td><input type="radio" name="choiceII6" value="5"></td>
             </tr>
-            <tr class="backtable-soft question">
-              <td class="question-text">I expect this playlist to be tailored to my individual preferences rather than just a general selection of popular songs.</td>
-              <td><input type="radio" name="q8" value="1"></td>
-              <td><input type="radio" name="q8" value="2"></td>
-              <td><input type="radio" name="q8" value="3"></td>
-              <td><input type="radio" name="q8" value="4"></td>
-              <td><input type="radio" name="q8" value="5"></td>
-            </tr>
           </table>
         </div>
-        <button onclick="fn2()">Continue</button>
+        <button onclick="PreSubForm(); fn2();">Continue</button>
     </div>
+
     </main>
-	<script>
-    function fn2() {
-  let selectedNumber = 0;
-  const table = document.querySelector('table');
-  const rows = document.querySelectorAll('.question');
+    <script src="index.js"></script>
+    <script>
+              function fn2() {
+            let selectedNumber = 0;
+            const table = document.querySelector('table');
+            const rows = document.querySelectorAll('.question');
 
-  for (let i = 0; i < rows.length; i++) {
-    const inputs = rows[i].querySelectorAll('input[type="radio"]');
-    
-    for (let j = 0; j < inputs.length; j++) {
-      if (inputs[j].checked) {
-        selectedNumber++;
-        console.log(selectedNumber);
-      }
-    }
-  }
+            for (let i = 0; i < rows.length; i++) {
+              const inputs = rows[i].querySelectorAll('input[type="radio"]');
+              
+              for (let j = 0; j < inputs.length; j++) {
+                if (inputs[j].checked) {
+                  selectedNumber++;
+                  console.log(selectedNumber);
+                }
+              }
+            }
 
-  if (selectedNumber < (rows.length-1)) {
-    alert("Please make sure all sections are filled in.");
-    console.log(selectedNumber);
-  } 
+            if (selectedNumber < (rows.length-1)) {
+              alert("Please make sure all sections are filled in.");
+              console.log(selectedNumber);
+            } 
 
-  if (selectedNumber === (rows.length-1)) {
-    window.location.href = "index5i-2.html";
-  } else {
-    console.log("fail")
-  }
-}
+            if (selectedNumber === (rows.length-1)) {
+              window.location.href = "index5i-2.html";
+            } else {
+              console.log("fail")
+            }
+            
+          }
+
+          function PreSubForm() {
+          const inputChoiceI = document.querySelectorAll('input:checked');
+          const values = [];
+
+          inputChoiceI.forEach(input => {
+            values.push(`${encodeURIComponent(input.name)}=${encodeURIComponent(input.value)}`);
+          });
+
+          const formData = values.join('&');
+
+          sessionStorage.setItem('page5-2FormData', formData);
+        }
 
 const storedTitle = localStorage.getItem('clickedTitleII');
     console.log(storedTitle);

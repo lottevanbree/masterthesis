@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <main class="condition">
@@ -34,29 +38,35 @@
           <div class="decision-making">
             <h3>Select the playlist that you would be most interested in to listen to <!--clear enough that you cant see the content before choosing?-->  </h3>
           </div>
-          <form id="myForm">
             <div class="grid-choice">
-              <div class="playlist-choice item1 firstChoice">
+              <div class="playlist-choice item1 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="IpChoice1" value="1"> <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title1"></h2>
+                <input type="hidden" name="choiceI_II" value="I-P1" > <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title1"></h2>
               </div>
-              <div class="playlist-choice item2 firstChoice">
+              <div class="playlist-choice item2 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="IpChoice2" value="2"> <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title2"></h2>
+                <input type="hidden" name="choiceI_II" value="I-P2" > <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title2"></h2>
               </div>
-              <div class="playlist-choice item3 firstChoice">
+              <div class="playlist-choice item3 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="IpChoice3" value="3"> <h2 class="personalizedTitle title" style="font-size: 0.8rem;"  id="title3"></h2>
+                <input type="hidden" name="choiceI_II" value="I-P3" > <h2 class="personalizedTitle title" style="font-size: 0.8rem;"  id="title3"></h2>
               </div>
-              <div class="playlist-choice item4 firstChoice">
+              <div class="playlist-choice item4 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="IpChoice4" value="4"> <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title4" ></h2>
+                <input type="hidden" name="choiceI_II" value="I-P4" > <h2 class="personalizedTitle title" style="font-size: 0.8rem;" id="title4" ></h2>
               </div>
-            </form>
       </div>
              
     </main>
-
+    <script>
+        function PreSubForm(clickedElem) {
+        const input = clickedElem.querySelector('input');
+        const name = encodeURIComponent(input.name);
+        const value = encodeURIComponent(input.value);
+        const formData = `${name}=${value}`;
+        sessionStorage.setItem('page4I_IIFormData', formData);
+      }
+    </script>
     <script src="index.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>

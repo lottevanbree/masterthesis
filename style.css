@@ -19,6 +19,17 @@ body {
   width: 100vw;
   opacity: 0.5;
 }
+ul {
+  display: inline-block;
+}
+
+ul li{
+  margin: 0;
+}
+#intro h4 {
+  margin: 0;
+  margin-bottom: -0.5rem;
+}
 
 h1 {
     font-weight: 600;
@@ -34,11 +45,10 @@ h3 {
      margin-top: -0.7rem;
 
 }
-p {
-    font-size: 0.85rem;
+p, li {
+    font-size: 0.95rem;
     font-weight: 200;
-    padding-left: 20vw;
-    padding-right: 20vw;
+    padding-right: 50vw;
     max-width: 100%;
     line-height: 1.4rem;
 
@@ -56,8 +66,8 @@ p {
 #intro {
   background-color: #181818;
   width: 100vw;
-  text-align: center;
   margin: 0;
+  padding-left: 5rem;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -386,7 +396,11 @@ button:hover {
       padding-top: 0rem;
   }
       #intro7 p {
+        text-align: center;
         padding-bottom: 5rem;
+        padding-right: 0;
+        margin-left: 25vw;
+        margin-right: 25vw;
       }
       .icon-done {
         text-align: center;
