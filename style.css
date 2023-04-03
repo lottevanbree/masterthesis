@@ -285,7 +285,7 @@ button:hover {
     min-width: 9rem;
   }
 
-  .playlist-choice:hover {
+  .grid-choice .playlist-choice:hover {
     background-color: #313131;
   }
 
