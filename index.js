@@ -1,33 +1,7 @@
 
 
 //page 4
-
-const playlistChoicesI = document.querySelectorAll(".firstChoice");
-
-playlistChoicesI.forEach((choice) => {
-  choice.addEventListener("click", () => {
-    console.log("hello");
-    const clickedTitleI = choice.querySelector('.title').innerHTML; 
-    localStorage.setItem('clickedTitleI', clickedTitleI); 
-    window.location.href = "index5.html";
-  });
-});
-
-const playlistChoicesII = document.querySelectorAll(".secondChoice");
-
-playlistChoicesII.forEach((choice) => {
-  choice.addEventListener("click", () => {
-    console.log("hello")
-    const clickedTitleII = choice.querySelector('.title').innerHTML; 
-    localStorage.setItem('clickedTitleII', clickedTitleII); 
-    window.location.href = "index5-2.html";
-  });
-});
-
-const playlistChoicesIsystem = document.querySelectorAll(".firstSystem");
-
-const playlistChoices = document.querySelectorAll(".playlist-choice");
-
+/*
 const pPlaylistTitles = {  // Personalized playlists  
   "pop":            [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",   "Pop Bangers Handpicked for You"  ],
   "rock":           [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
@@ -94,7 +68,7 @@ if (storedSelectedTitles && storedSelectedTitles.length === 4) {
 
 //NON PERSONALIZED TITLES
 
-
+/*
 const storedNonPersonalizedTitles = JSON.parse(sessionStorage.getItem('selectedNpPlaylist'));
 let selectedItemsNp = [];
 
@@ -137,4 +111,4 @@ console.log(storedNonPersonalizedTitles);
 
 // Store selected genre and personalized playlist title in local storage page 4
 localStorage.setItem('selectedGenre', allSelectedGenres);
-localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists));
+

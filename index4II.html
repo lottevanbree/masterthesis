@@ -59,6 +59,21 @@
       </div>
     </main>
     <script>
+    const playlistChoicesI = document.querySelectorAll(".firstChoice");
+
+    playlistChoicesI.forEach((choice) => {
+      choice.addEventListener("click", () => {
+        console.log("hello");
+        const clickedTitleI = choice.querySelector('.title').innerHTML; 
+        localStorage.setItem('clickedTitleI', clickedTitleI); 
+        window.location.href = "index5.html";
+      });
+    });
+
+const npPlaylistTitles = [ //non personalized titles
+    "Top Pop Hits of All Time", "The Ultimate Pop Playlist",  "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix", "Greatest Rock Hits of All Time", "The Ultimate Rock Playlist", "Best Classic Rock Songs", "Hard Rock Anthems", "Rock Road Trip Mix", "Top Hip Hop Hits of All Time", "The Ultimate Hip Hop Playlist",  "Best Hip Hop Songs of the Decade",  "Classic Hip Hop Anthems", "Hip Hop Party Mix", "Top Electronic Hits of All Time", "The Ultimate Electronic Playlist",  "Best Electronic Songs of the Decade", "Classic Electronic"
+  ];
+
       function PreSubForm(clickedElem) {
       const input = clickedElem.querySelector('input');
       const name = encodeURIComponent(input.name);
@@ -66,6 +81,50 @@
       const formData = `${name}=${value}`;
       sessionStorage.setItem('page4I_IIFormData', formData);
     }
+
+    const storedNonPersonalizedTitles = JSON.parse(sessionStorage.getItem('selectedNpPlaylist'));
+let selectedItemsNp = [];
+
+if (storedNonPersonalizedTitles) {
+  // display the selected titles from session storage
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = storedNonPersonalizedTitles[index];
+  });
+
+  selectedItemsNp = selectedItemsNp.concat(storedNonPersonalizedTitles);
+  console.log(storedNonPersonalizedTitles);
+} else {
+  // if titles are not stored in session storage, pick new ones
+  const nonpersonalizedPlaylist = npPlaylistTitles;
+  const selectedTitlesNP = [];
+
+  while (selectedTitlesNP.length < 4) {
+    const randomIndex = Math.floor(Math.random() * nonpersonalizedPlaylist.length);
+    const title = nonpersonalizedPlaylist[randomIndex];
+    if (!selectedTitlesNP.includes(title)) {
+      selectedTitlesNP.push(title);
+    }
+  }
+  
+  // assign each title element to a different title from the selectedTitles array
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = selectedTitlesNP[index];
+    
+  });
+  
+  // save the selected titles array to session storage
+  sessionStorage.setItem('selectedNpPlaylist', JSON.stringify(selectedTitlesNP));
+  
+  // save the selected items array to session storage
+  selectedItemsNp = selectedItemsNp.concat(selectedTitlesNP);
+}
+
+sessionStorage.setItem('selectedItemsNp', JSON.stringify(selectedItemsNP));
+console.log(storedNonPersonalizedTitles);
+
+// Store selected genre and personalized playlist title in local storage page 4
+localStorage.setItem('selectedGenre', allSelectedGenres);
+localStorage.setItem('personalizedTitle', JSON.stringify(personalizedPlaylists));
   </script>
     <script src="index.js">
     </script>

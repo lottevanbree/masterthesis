@@ -59,6 +59,18 @@
       </div>
     </main>
     <script>
+      const playlistChoicesII = document.querySelectorAll(".secondChoice");
+
+      playlistChoicesII.forEach((choice) => {
+        choice.addEventListener("click", () => {
+          console.log("hello")
+          const clickedTitleII = choice.querySelector('.title').innerHTML; 
+          localStorage.setItem('clickedTitleII', clickedTitleII); 
+          window.location.href = "index5-2.html";
+        });
+      });
+
+
       function PreSubForm(clickedElem) {
       const input = clickedElem.querySelector('input');
       const name = encodeURIComponent(input.name);

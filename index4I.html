@@ -59,6 +59,17 @@
              
     </main>
     <script>
+      const playlistChoicesI = document.querySelectorAll(".firstChoice");
+
+      playlistChoicesI.forEach((choice) => {
+        choice.addEventListener("click", () => {
+          console.log("hello");
+          const clickedTitleI = choice.querySelector('.title').innerHTML; 
+          localStorage.setItem('clickedTitleI', clickedTitleI); 
+          window.location.href = "index5.html";
+        });
+      });
+
         function PreSubForm(clickedElem) {
         const input = clickedElem.querySelector('input');
         const name = encodeURIComponent(input.name);
@@ -66,6 +77,70 @@
         const formData = `${name}=${value}`;
         sessionStorage.setItem('page4I_IIFormData', formData);
       }
+
+
+const pPlaylistTitles = {  // Personalized playlists  
+  "pop":            [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",   "Pop Bangers Handpicked for You"  ],
+  "rock":           [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
+  "R&B":            [    "Your Daily R&B Mix",    "R&B Discoveries for You",    "R&B Essentials Tailored to You",    "R&B Gems Handpicked for You",    "Your Personal R&B Collection"  ],
+  "electronic":     [    "Your Electronic Essentials",    "Electronic Discoveries for You",    "Personalized Electronic Mix",    "Electronic Gems Tailored to You",    "Electronic Beats Just for You"  ] ,
+  "classical":      [    "Classical Just for You",    "Your Classical Mix",    "Classical Jams Tailored to You",    "Classical Discoveries for You",    "Classical Bangers Handpicked for You"  ],
+  "dance":          [    "Your Personal Dance Journey",    "Dance Essentials for You",    "Dance Classics Curated for You",    "Your Dance Favorites",    "Dance Hits Tailored to You"  ],
+  "jazz":          [    "Your Daily Jazz Mix",    "Jazz Discoveries for You",    "Jazz Essentials Tailored to You",    "Jazz Gems Handpicked for You",    "Your Personal Jazz Collection"  ],
+  "country":       [    "Your Country Essentials",    "Country Discoveries for You",    "Personalized Country Mix",    "Country Gems Tailored to You",    "Country Beats Just for You"  ] ,
+  "indie":         [    "Your Daily Indie Mix",    "Indie Discoveries for You",    "Indie Essentials Tailored to You",    "Indie Gems Handpicked for You",   "Your Personal Indie Collection"  ],
+  "metal":         [    "Your Metal Essentials",    "Metal Discoveries for You",    "Personalized Metal Mix",    "Metal Gems Tailored to You",    "Metal Beats Just for You"  ] 
+  };
+
+
+const storedGenres = localStorage.getItem('selectedGenres');
+const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
+console.log("selected:", useSelectedGenres);
+console.log('hi');
+
+const allSelectedGenres = useSelectedGenres.flatMap((x) => pPlaylistTitles[x]);
+const personalizedPlaylists = allSelectedGenres;
+
+let selectedItems = [];
+
+const storedSelectedTitles = JSON.parse(sessionStorage.getItem('selectedTitles'));
+if (storedSelectedTitles && storedSelectedTitles.length === 4) {
+  // retrieve the selected titles from session storage
+  selectedItems = storedSelectedTitles;
+
+  // display the selected playlist titles
+  document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
+    title.innerHTML = storedSelectedTitles[index];
+    console.log('1');
+  });
+} else {
+  console.log("selected:", useSelectedGenres);
+
+  // generate a new set of selected titles
+  const selectedTitles = [];
+  while (selectedTitles.length < 4 && personalizedPlaylists.length > 0) {
+    const randomIndex = Math.floor(Math.random() * personalizedPlaylists.length);
+    const title = personalizedPlaylists.splice(randomIndex, 1)[0];
+    selectedTitles.push(title);
+  }
+  console.log(selectedTitles);
+
+  // assign each title element to a different title from the selectedTitles array
+  document.querySelectorAll(".personalizedTitle").forEach(function(title, index) {
+    title.innerHTML = selectedTitles[index];
+    console.log('2');
+  });
+
+  // save the selected titles array to session storage
+  sessionStorage.setItem('selectedTitles', JSON.stringify(selectedTitles));
+  console.log(selectedTitles);
+
+  // save the selected items array
+  selectedItems = selectedTitles;
+}
+console.log(selectedItems)
+console.log(selectedTitles)
+console.log(storedSelectedTitles)
     </script>
     <script src="index.js">
     </script>
