@@ -5,6 +5,7 @@
 
 
 
+
 const pPlaylistTitles = {  // Personalized playlists  
   "pop":            [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",   "Pop Bangers Handpicked for You"  ],
   "rock":           [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
@@ -17,9 +18,32 @@ const pPlaylistTitles = {  // Personalized playlists
   "indie":         [    "Your Daily Indie Mix",    "Indie Discoveries for You",    "Indie Essentials Tailored to You",    "Indie Gems Handpicked for You",   "Your Personal Indie Collection"  ],
   "metal":         [    "Your Metal Essentials",    "Metal Discoveries for You",    "Personalized Metal Mix",    "Metal Gems Tailored to You",    "Metal Beats Just for You"  ] 
   };
+
+  /*
   const npPlaylistTitles = [ //non personalized titles
     "Top Pop Hits of All Time", "The Ultimate Pop Playlist",  "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix", "Greatest Rock Hits of All Time", "The Ultimate Rock Playlist", "Best Classic Rock Songs", "Hard Rock Anthems", "Rock Road Trip Mix", "Top Hip Hop Hits of All Time", "The Ultimate Hip Hop Playlist",  "Best Hip Hop Songs of the Decade",  "Classic Hip Hop Anthems", "Hip Hop Party Mix", "Top Electronic Hits of All Time", "The Ultimate Electronic Playlist",  "Best Electronic Songs of the Decade", "Classic Electronic"
-  ];
+  ];*/
+
+  const npPlaylistTitles = {
+    "pop": [
+      "Top Pop Hits of All Time", "The Ultimate Pop Playlist", "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix" ],
+    "rock": ["Greatest Rock Hits of All Time", "The Ultimate Rock Playlist","Best Classic Rock Songs", "Hard Rock Anthems","Rock Road Trip Mix" ],
+    "R&B": ["Top R&B Hits of All Time","The Ultimate R&B Playlist", "Best R&B Songs of the Decade",  "Classic R&B Anthems", "R&B Party Mix" ],
+    "electronic": ["Top Electronic Hits of All Time", "The Ultimate Electronic Playlist", "Best Electronic Songs of the Decade","Classic Electronic Anthems","Electronic Party Mix"],
+    "classical": ["The Best of Beethoven", "Mozart for Studying","Classical Relaxation","Baroque Favorites","Romantic Era Masterpieces"
+    ],
+    "dance": ["Top Dance Hits of All Time", "The Ultimate Dance Playlist","Best Dance Songs of the Decade", "Classic Dance Anthems","Dance Party Mix"
+    ],
+    "jazz": [ "Top Jazz Hits of All Time","The Ultimate Jazz Playlist","Best Jazz Songs of the Decade", "Classic Jazz Anthems","Jazz Party Mix"
+    ],
+    "country": [ "Top Country Hits of All Time","The Ultimate Country Playlist","Best Country Songs of the Decade","Classic Country Anthems","Country Party Mix"
+    ],
+    "indie": [ "Top Indie Hits of All Time", "The Ultimate Indie Playlist","Best Indie Songs of the Decade","Classic Indie Anthems","Indie Party Mix"
+    ],
+    "metal": ["Top Metal Hits of All Time","The Ultimate Metal Playlist", "Best Metal Songs of the Decade","Classic Metal Anthems", "Metal Party Mix"
+    ]
+  };
+  
 
 const storedGenres = localStorage.getItem('selectedGenres');
 const useSelectedGenres = storedGenres ? JSON.parse(storedGenres) : null;
@@ -72,6 +96,57 @@ if (storedSelectedTitles && storedSelectedTitles.length === 4) {
 //NON PERSONALIZED TITLES
 
 
+const NPstoredGenres = localStorage.getItem('selectedGenres');
+const NPuseSelectedGenres = NPstoredGenres ? JSON.parse(NPstoredGenres) : null;
+console.log("selected:", NPuseSelectedGenres);
+console.log('hi');
+
+const NPallSelectedGenres = NPuseSelectedGenres.flatMap((x) => npPlaylistTitles[x]);
+const NPpersonalizedPlaylists = NPallSelectedGenres;
+
+let NPselectedItems = [];
+
+const NPstoredSelectedTitles = JSON.parse(sessionStorage.getItem('NPselectedTitles'));
+if (NPstoredSelectedTitles && NPstoredSelectedTitles.length === 4) {
+  // retrieve the selected titles from session storage
+  NPselectedItems = NPstoredSelectedTitles;
+
+  // display the selected playlist titles
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = NPstoredSelectedTitles[index];
+    console.log('1');
+  });
+} else {
+  console.log("selected:", NPuseSelectedGenres);
+
+  // generate a new set of selected titles
+  const NPselectedTitles = [];
+  while (NPselectedTitles.length < 4 && NPpersonalizedPlaylists.length > 0) {
+    const NPrandomIndex = Math.floor(Math.random() * NPpersonalizedPlaylists.length);
+    const NPtitle = NPpersonalizedPlaylists.splice(NPrandomIndex, 1)[0];
+    NPselectedTitles.push(NPtitle);
+  }
+  console.log(NPselectedTitles);
+
+  // assign each title element to a different title from the selectedTitles array
+  document.querySelectorAll(".nonPersonalizedTitle").forEach(function(title, index) {
+    title.innerHTML = NPselectedTitles[index];
+    console.log('2');
+  });
+
+  // save the selected titles array to session storage
+  sessionStorage.setItem('NPselectedTitles', JSON.stringify(NPselectedTitles));
+  console.log(NPselectedTitles);
+
+  // save the selected items array
+  NPselectedItems = NPselectedTitles;
+}
+
+
+
+
+/*
+
 const storedNonPersonalizedTitles = JSON.parse(sessionStorage.getItem('selectedNpPlaylist'));
 let selectedItemsNp = [];
 
@@ -111,7 +186,9 @@ if (storedNonPersonalizedTitles) {
 
 sessionStorage.setItem('selectedItemsNp', JSON.stringify(selectedItemsNP));
 console.log(storedNonPersonalizedTitles);
+console.log(selectedItemsNp);
 
 // Store selected genre and personalized playlist title in local storage page 4
 localStorage.setItem('selectedGenre', allSelectedGenres);
-
+selectedNpPlaylist
+*/

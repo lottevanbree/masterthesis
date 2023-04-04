@@ -41,32 +41,45 @@
             <div class="grid-choice">
               <div class="playlist-choice item1 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceI/II" value="I-NP1"><h2 class="randomTitle nonPersonalizedTitle title" id="title1"></h2>
+                <input type="hidden" name="choiceI/II" value="I-NP1"><h2 class="randomTitle nonPersonalizedTitle title selectedTitlesII" id="title1"></h2>
               </div>
               <div class="playlist-choice item2 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceI/II" value="I-NP2"><h2 class="randomTitle nonPersonalizedTitle title" id="title2"></h2>
+                <input type="hidden" name="choiceI/II" value="I-NP2"><h2 class="randomTitle nonPersonalizedTitle title selectedTitlesII" id="title2"></h2>
               </div>
               <div class="playlist-choice item3 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceI/II" value="I-NP3"><h2 class="randomTitle nonPersonalizedTitle title" id="title3"></h2>
+                <input type="hidden" name="choiceI/II" value="I-NP3"><h2 class="randomTitle nonPersonalizedTitle title selectedTitlesII" id="title3"></h2>
               </div>
               <div class="playlist-choice item4 firstChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceI/II" value="I-NP4"><h2 class="randomTitle nonPersonalizedTitle title" id="title4"></h2>
+                <input type="hidden" name="choiceI/II" value="I-NP4"><h2 class="randomTitle nonPersonalizedTitle title selectedTitlesII" id="title4"></h2>
               </div>
             <div>
       </div>
     </main>
     <script>
+
     const playlistChoicesI = document.querySelectorAll(".firstChoice");
 
     playlistChoicesI.forEach((choice) => {
       choice.addEventListener("click", () => {
         console.log("hello");
         const clickedTitleI = choice.querySelector('.title').innerHTML; 
+
+           //save titles of this page
+          const h2Elements = document.querySelectorAll('.selectedTitlesII');
+          const selectedTitlesII = [];
+
+          h2Elements.forEach((h2) => {
+            selectedTitlesII.push(h2.innerText);
+            console.log("fd",selectedTitlesII)
+          });
+
+          localStorage.setItem('selectedTitlesII', JSON.stringify(selectedTitlesII));
+
         localStorage.setItem('clickedTitleI', clickedTitleI); 
-        window.location.href = "index5.html";
+        window.location.href = "index5AI-4II.html";
       });
     });
 /*

@@ -100,10 +100,10 @@
           </table>
           </div>
         </form>
-        <button style="margin-left: 5rem;" onclick="SubForm(); fn2();" >Submit</button>
+        <button style="margin-left: 5rem;" onclick="fn2()" >Submit</button>
     </main>
 	<script>
-function SubForm() {
+//function SubForm() {
     var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
     var page4III_IVFormData = sessionStorage.getItem("page4III_IVFormData");
     var page5FormData = sessionStorage.getItem("page5FormData");
@@ -118,7 +118,7 @@ function SubForm() {
     var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData;
     console.log(formData);
   
-    $.ajax({
+   /* $.ajax({
       url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
       type: "post",
       data: formData,
@@ -130,7 +130,7 @@ function SubForm() {
         alert("There was an error")
       }
     });
-}
+}*/
 
   function fn2() {
   let selectedNumber = 0;
@@ -154,7 +154,32 @@ function SubForm() {
   } 
 
   if (selectedNumber === (rows.length)) {
-    window.location.href = "index7.html";
+    //window.location.href = "index7.html";
+    var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
+    var page4III_IVFormData = sessionStorage.getItem("page4III_IVFormData");
+    var page5FormData = sessionStorage.getItem("page5FormData");
+    var page5iFormData = sessionStorage.getItem("page5iFormData");
+    var page5_2FormData = sessionStorage.getItem("page5-2FormData");
+    var page5i_2FormData = sessionStorage.getItem("page5i-2FormData");
+
+
+    console.log(page5FormData);
+    var page6FormData = $("#myForm").serialize();
+    
+    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData;
+    console.log(formData);
+    $.ajax({
+      url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
+      type: "post",
+      data: formData,
+      success: function() {
+        window.location.href = "index7.html";
+        alert("Form Data Submitted")
+      },
+      error: function() {
+        alert("There was an error")
+      }
+    });
     console.log('hi')
   } else {
     console.log("fail")

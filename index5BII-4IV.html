@@ -68,7 +68,7 @@
               <th>Strongly Agree</th>
             </tr>
             <tr class="backtable-soft">
-              <td class="question-text question">The system recommended playlists that were in line with my personal preferences.</td>
+              <td class="question-text question">The system recommended playlists that I expect to be in line with my personal preferences.</td>
               <td><input type="radio" name="satisfactionII1" value="1"></td>
               <td><input type="radio" name="satisfactionII1" value="2"></td>
               <td><input type="radio" name="satisfactionII1" value="3"></td>
@@ -115,13 +115,12 @@
     </main>
     <script src="index.js"></script>
     <script>
-                  const selectedTitles = JSON.parse(sessionStorage.getItem('selectedTitles'));
-
-                  const h2Elements = document.querySelectorAll('.systemReuse');
-
-                  h2Elements.forEach((h2, index) => {
-                    h2.innerText = selectedTitles[index];
-                  });
+           const selectedTitlesIV = JSON.parse(localStorage.getItem('selectedTitlesIV'));
+            const h2Elements = document.querySelectorAll('.systemReuse');
+            console.log(selectedTitlesIV)
+            h2Elements.forEach((h2, index) => {
+              h2.innerText = selectedTitlesIV[index];
+            });
 
 
               function fn2() {

@@ -41,19 +41,19 @@
             <div class="grid-choice">
               <div class="playlist-choice item1 secondChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceIII_IV" value="I-NP1"><h2 class="nonPersonalizedTitle title" id="title1"></h2>
+                <input type="hidden" name="choiceIII_IV" value="I-NP1"><h2 class="nonPersonalizedTitle title selectedTitlesIV" id="title1"></h2>
               </div>
               <div class="playlist-choice item2 secondChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceIII_IV" value="I-P2"><h2  class="personalizedTitle title"  id="title2"></h2>
+                <input type="hidden" name="choiceIII_IV" value="I-P2"><h2  class="personalizedTitle title selectedTitlesIV"  id="title2"></h2>
               </div>
               <div class="playlist-choice item3 secondChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceIII_IV" value="I-NP3"><h2 class="nonPersonalizedTitle title" id="title3"></h2>
+                <input type="hidden" name="choiceIII_IV" value="I-NP3"><h2 class="nonPersonalizedTitle title selectedTitlesIV" id="title3"></h2>
               </div>
               <div class="playlist-choice item4 secondChoice" onclick="PreSubForm(this)">
                 <img src="assets/visual.jpg" alt="">
-                <input type="hidden" name="choiceIII_IV" value="I-P4"><h2  class="personalizedTitle title"  id="title4"></h2>
+                <input type="hidden" name="choiceIII_IV" value="I-P4"><h2  class="personalizedTitle title selectedTitlesIV"  id="title4"></h2>
               </div>
             <div>
       </div>
@@ -65,8 +65,21 @@
         choice.addEventListener("click", () => {
           console.log("hello")
           const clickedTitleII = choice.querySelector('.title').innerHTML; 
+
+          //save titles of this page
+          const h2Elements = document.querySelectorAll('.selectedTitlesIV');
+          const selectedTitlesIV = [];
+
+          h2Elements.forEach((h2) => {
+            selectedTitlesIV.push(h2.innerText);
+            console.log("fd",selectedTitlesIV)
+          });
+
+          localStorage.setItem('selectedTitlesIV', JSON.stringify(selectedTitlesIV));
+
+
           localStorage.setItem('clickedTitleII', clickedTitleII); 
-          window.location.href = "index5-2.html";
+          window.location.href = "index5BI-4IV.html";
         });
       });
 
