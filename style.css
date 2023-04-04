@@ -376,16 +376,19 @@ button:hover {
     }
 
     /*page 7*/
-
+ 
     #page7 {
       height: 100vh;
       position: relative;
     }
     #intro7 {
       background-color: #181818;
-      width: 100vw;
-      text-align: center;
+      max-width: 100vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-row: 1fr;
       margin: 0;
+      padding-left: 5rem;
       position: absolute;
       top: 50%;
       -ms-transform: translateY(-50%);
@@ -394,16 +397,33 @@ button:hover {
      }
      #intro7 h1 {
       padding-top: 0rem;
+      grid-column: 1;
   }
       #intro7 p {
-        text-align: center;
         padding-bottom: 5rem;
         padding-right: 0;
-        margin-left: 25vw;
-        margin-right: 25vw;
+        grid-column: 1;
+        padding-right: 3rem;
       }
       .icon-done {
-        text-align: center;
+        grid-column: 1;
+      }
+      #intro7 form {
+        grid-column: 2;
+        padding-left: 3rem;
+        margin-top: 5rem;
+      }
+      #intro7 form label {
+        display: block;
+        max-width: fit-content;
+      }
+      #intro7 input, #intro7 textarea {
+        width:  80%;
+        background-color: #F6F6F6;
+        border-radius: 5px;
+      }
+      #feedback {
+        margin: 0;
       }
 
       /*page 8*/
