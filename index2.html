@@ -92,6 +92,13 @@
     </main>
 	<script src="index.js"></script>
   <script>
+        let startTime = new Date();
+        console.log(new Date());
+        
+        localStorage.setItem('startTime', startTime.toISOString());
+
+
+
               let selectedGenres = [];
 
           function fn1() {

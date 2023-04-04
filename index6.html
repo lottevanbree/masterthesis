@@ -104,7 +104,7 @@
     </main>
 	<script>
 //function SubForm() {
-    var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
+    /*  var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
     var page4III_IVFormData = sessionStorage.getItem("page4III_IVFormData");
     var page5FormData = sessionStorage.getItem("page5FormData");
     var page5iFormData = sessionStorage.getItem("page5iFormData");
@@ -118,7 +118,7 @@
     var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData;
     console.log(formData);
   
-   /* $.ajax({
+  $.ajax({
       url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
       type: "post",
       data: formData,
@@ -133,6 +133,8 @@
 }*/
 
   function fn2() {
+  
+
   let selectedNumber = 0;
   const table = document.querySelector('table');
   const rows = document.querySelectorAll('.question');
@@ -154,7 +156,17 @@
   } 
 
   if (selectedNumber === (rows.length)) {
-    //window.location.href = "index7.html";
+      //log time of taking survey
+    var storedStartTime = localStorage.getItem('startTime');
+    var startTime = new Date(storedStartTime);
+    var endTime = new Date();
+    var totalTime = (endTime.getTime() - startTime.getTime())/1000;
+    var minutes = Math.floor(totalTime / 60);
+    var seconds = Math.floor(totalTime % 60); 
+    console.log(`total time: ${minutes} minutes, ${seconds} seconds`);
+    var timeTaken = `${minutes} m, ${seconds} s`
+    
+    //log data from all pages
     var page4I_IIFormData = sessionStorage.getItem("page4I_IIFormData");
     var page4III_IVFormData = sessionStorage.getItem("page4III_IVFormData");
     var page5FormData = sessionStorage.getItem("page5FormData");
@@ -162,11 +174,10 @@
     var page5_2FormData = sessionStorage.getItem("page5-2FormData");
     var page5i_2FormData = sessionStorage.getItem("page5i-2FormData");
 
-
     console.log(page5FormData);
     var page6FormData = $("#myForm").serialize();
     
-    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData;
+    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData + '&Time=' + timeTaken;
     console.log(formData);
     $.ajax({
       url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
