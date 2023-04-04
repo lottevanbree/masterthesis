@@ -1,7 +1,7 @@
 
 
 //page 4
-/*
+
 const pPlaylistTitles = {  // Personalized playlists  
   "pop":            [    "Pop Picks Just for You",    "Your Daily Pop Mix",    "Pop Jams Tailored to You",    "Pop Discoveries for You",   "Pop Bangers Handpicked for You"  ],
   "rock":           [    "Your Personal Rock Journey",    "Rock Essentials for You",    "Rock Classics Curated for You",    "Your Rock Favorites",    "Rock Hits Tailored to You"  ],
@@ -68,7 +68,7 @@ if (storedSelectedTitles && storedSelectedTitles.length === 4) {
 
 //NON PERSONALIZED TITLES
 
-/*
+
 const storedNonPersonalizedTitles = JSON.parse(sessionStorage.getItem('selectedNpPlaylist'));
 let selectedItemsNp = [];
 
