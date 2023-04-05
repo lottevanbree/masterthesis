@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
     <link rel="stylesheet" href="./style.css">
-    
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
   </head>
   <body>
     <main id="page7">
@@ -16,7 +19,7 @@
             <h1>Survey succesfully completed</h1>  
             <p>Thank you very much for taking the time to participate in my master thesis survey. Your valuable input is crucial to the success of my research, and I deeply appreciate your contribution. Your responses will be used to gain a better understanding of the topic, and I hope the findings will be insightful and beneficial. Once again, thank you for your participation and support in my academic journey.</p></div>
 
-              <form>
+              <form id="myForm">
                 <label for="name" style="font-size: 0.95rem; font-weight: 600;">Name*</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your name" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"><br><br>
                 
@@ -24,7 +27,7 @@
                 <input type="email" id="email" name="email" required placeholder="youremail@example.com" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"><br><br>
                 
                 <label for="feedback" style="font-size: 0.95rem; font-weight: 600;">Feedback*</label>
-                <textarea id="feedback" name="feedback" rows="4" required placeholder="Write your feedback or comments here" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"></textarea><br><br>
+                <textarea id="feedback" name="message" rows="4" required placeholder="Write your feedback or comments here" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"></textarea><br><br>
                 
                 <button id="submitButton" type="submit" value="Submit" onclick="validateForm()">Submit</button>
               </form>
@@ -40,15 +43,30 @@
       var email = document.getElementById("email").value;
       var feedback = document.getElementById("feedback").value;
       var submitButton = document.getElementById("submitButton");
+      var dateSubmit = new Date();
+      var myForm = $("#myForm").serialize();
+      var dataContact =  myForm + '&date=' + dateSubmit
 
       if (name === "" || email === "" || feedback === "") {
         alert("Please fill in all required fields.");
-      } else {
+      }  else {
+        //send data out
+        function SubForm (){
+        $.ajax({
+          url:"https://api.apispreadsheets.com/data/WAUvtn8WndksMCjL/",
+          type:"post",
+          data: dataContact,
+        });
+		}
+        
+
         // Update button text and add icon
         submitButton.innerHTML = '<div style="display: flex; align-items: center;"><iconify-icon icon="fluent-mdl2:completed" height="15" style="color: #1ad760;"></iconify-icon><span style="color: #ffffff; margin-left: 0.5rem; padding-bottom:0.1rem;"> Form submitted successfully!</span></div>';
         submitButton.style.backgroundColor = '#181818'; // Sets the background color to red
 
         submitButton.disabled = true;
+        SubForm();
+        console.log(SubForm());
       }
     };
   </script>
