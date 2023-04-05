@@ -3,6 +3,7 @@ body {
     background-color: #121212;
     font-family: sans-serif;
     margin: 0;
+    font-size: 16px;
 }
 .contact {
   text-align: center;
@@ -18,9 +19,6 @@ body {
   transform: translateY(-50%);
   width: 100vw;
   opacity: 0.5;
-}
-ul {
-  display: inline-block;
 }
 
 ul li{
@@ -45,10 +43,9 @@ h3 {
      margin-top: -0.7rem;
 
 }
-p, li {
-    font-size: 0.95rem;
+#intro p, #intro3 p, #intro li, #intro ul {
     font-weight: 200;
-    padding-right: 50vw;
+    width: 50vw;
     max-width: 100%;
     line-height: 1.4rem;
 
@@ -61,17 +58,14 @@ p, li {
 }
 #page1 {
   height: 100vh;
-  position: relative;
 }
 #intro {
   background-color: #181818;
-  width: 100vw;
   margin: 0;
   padding-left: 5rem;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  padding-right: 5rem;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   box-shadow: 0px 0px 7px black;
  }
 
@@ -111,16 +105,14 @@ button:hover {
         margin-top: -0.7rem;
       }
       #intro2 p {
-        font-size: 0.85rem;
         font-weight: 200;
         margin-left: 5rem;
         max-width: 60%;
         line-height: 1.4rem;
       }
       .index2 {
-        max-width: 75%;
         margin-right: auto;
-        margin-left: auto;
+
       }
       table,
       th,
@@ -150,7 +142,6 @@ button:hover {
 
       td {
         text-align: center;
-        font-size: 0.85rem;
       }
 
       td:nth-child(1) {
@@ -180,25 +171,27 @@ button:hover {
     }
 
   /*page 3*/
+  #intro3 {
+    background-color: #181818;
+    margin: 0;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    box-shadow: 0px 0px 7px black;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+   }
 
   #page3 {
     height: 100vh;
     position: relative;
   }
-  #intro3 {
-    background-color: #181818;
-    width: 100vw;
-    text-align: center;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    box-shadow: 0px 0px 7px black;
-   }
+  
   /*page 4*/
   .centermiddle {
-    position: relative;
     height: 55vh;
     background-color: #181818;
     width: 100vw;
@@ -214,15 +207,17 @@ button:hover {
 
   .centermiddleChoice {
     width: 100vw;
-    position: relative;
     height: 25vh;
     width: 100vw;
     margin: 0;
-    position: absolute;
     top: 30%;
     padding-top: 2rem;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    position: relative;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
   .decision-making {
     grid-template-columns: 1fr;
@@ -322,7 +317,6 @@ button:hover {
       margin-top: -0.7rem;
     }
     #intro5 p {
-      font-size: 0.95rem;
       font-weight: 200;
       margin-left: 5rem;
      line-height: 1.4rem;
@@ -336,7 +330,35 @@ button:hover {
       border-radius: 10px;
       border: none;
   }
+  .centermiddleChoice5 {
+    width: 100vw;
+    height: 25vh;
+    width: 100vw;
+    margin-top: 12.5rem;
+    padding-top: 2rem;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
   
+  .centermiddleChoice5II {
+    width: 100vw;
+    height: 25vh;
+    width: 100vw;
+    margin-top: 12.5rem;
+    padding-top: 2rem;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+
     .grid-survey {
       max-width: 100%;
       margin-left: auto;
@@ -344,6 +366,10 @@ button:hover {
       background-color: #181818;
       box-shadow: 0px 0px 7px black;
       padding: 2rem 5rem 2rem 5rem;
+    }
+
+    .centermiddleChoice5II .grid-choiceII {
+      width: 100%;
     }
 
     /*page 6*/
@@ -439,7 +465,88 @@ button:hover {
         vertical-align: middle;
       }
 
+      @media only screen and (max-width: 1200px) {
+        #intro {
+          background-color: darkgrey;
+        }
+        #intro p, #intro3 p {
+          width: 100vw;
+        }
+        #intro li {
+          width: 70vw;
+        }
+        .centermiddle {
+          padding: 0;
+          margin: 0;
+          width: 100vw;
+          
+        }
+        .grid-choice {
+          left: 49%;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+          max-width: 100%;
+          padding-bottom: 5rem;
+          padding-top: 3rem;
+          }
+
+          .centermiddle {
+            background-color: #121212;
+            box-shadow: none;
+          }
+    
+      }
+      @media only screen and (max-width: 900px) {
+        #intro5 .questions {
+          padding-left: 1rem;
+          padding-right:1rem;
+          margin: 0;
+          max-width: 90vw;
+        }
+        #intro5 p, #intro5 h3, #intro5 h1 {
+          margin-left: 2rem;
+        }
+
+        #intro5 button {
+          margin: 0rem 0rem 5rem 2rem;
+      }
+      #intro7 {
+        grid-template-columns: 1fr;
+        grid-row: 1fr 1fr;
+        padding-left: 2rem;
+       }
+       #intro7 h1 {
+        grid-row: 1;
+        padding-right: 2rem;
+    }
+        #intro7 p {
+          padding-bottom: 2rem;
+          padding-right: 0;
+          grid-row: 1;
+          padding-right: 2rem;
+        }
+        .icon-done {
+          grid-row: 1;
+          text-align: center;
+        }
+        #intro7 form {
+          grid-row: 2;
+          grid-column: 1;
+          padding-left: 0rem;
+          margin-top: 2rem;
+          margin-right: -1rem;
+        }
+
+      }
+
+
       @media only screen and (max-width: 600px) {
+        
+          #intro {
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
     
            #intro2 {
               width: 100vw; 
@@ -463,14 +570,13 @@ button:hover {
               margin-top: -0.7rem;
             }
             #intro2 p {
-              font-size: 0.85rem;
               font-weight: 200;
               margin-left: 2rem;
-              max-width: 60%;
+              max-width: 100%;
               line-height: 1.4rem;
             }
             .index2 {
-              max-width: 75%;
+              max-width: 100%;
               margin-right: auto;
               margin-left: auto;
             }
@@ -488,6 +594,13 @@ button:hover {
               margin: 0rem 0rem 0rem 0rem;
               padding: 2rem;
             }
+
+            /*page3*/
+            #intro3 {
+
+              padding-left: 2rem;
+              padding-right: 2rem;
+             }
             /*page 4*/
             .centermiddle {
               width: 100vw;
@@ -511,7 +624,8 @@ button:hover {
             }
             
             .grid-choice {
-              left: 49%;
+              padding-left: 1rem;
+              padding-right: 1rem;
               display: grid;
               grid-template-columns: 1fr 1fr;
               gap: 2rem;
@@ -530,7 +644,6 @@ button:hover {
               text-align: left;
               padding: 1rem;
               border-radius: 10px;
-              width: 100%;
               max-width: 10rem;
               min-width: 7rem;
             }
@@ -564,12 +677,8 @@ button:hover {
               line-height: 1.4rem;
             }
           
-            #intro5 button {
-              margin: 0rem 0rem 5rem 2rem;
-          }
-       #intro5 table {
-            margin-left: -2rem;
-          }
+          
+    
           #likert {
             text-align: left;
             background-color: #313131;
@@ -588,5 +697,86 @@ button:hover {
             border-right: 1px solid #ffffff70;
             min-width: 5rem;
           }
+          .centermiddleChoice5 {
+            width: 100vw;
+            height: 25vh;
+            width: 100vw;
+            margin-top: 12.5rem;
+            padding-top: 2rem;
+            position: relative;
+            top: 80%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+
+          .centermiddleChoice5II {
+            width: 100vw;
+            height: 25vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 16rem;
+            padding-top: 2rem;
+            position: relative;
+            top: 80%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+
+          .centermiddleChoice5II #intro5 {
+            margin-top: 40vh;
+          }
+
+          .centermiddleChoice5II #intro5 p {
+            max-width: 90vw;
+          }
+
+          .gridMobile{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100vw;
+          }
+
+          .gridMobile #item1 {
+            grid-column: 1;
+          }
+
+          .gridMobile #item2 {
+            grid-column: 2;
+          }
+
+          .gridMobile #item3 {
+            grid-column: 1;
+          }
+
+          .gridMobile #item4 {
+            grid-column: 2;
+          }
+
+              /*page 6*/
+          #intro6 {
+            width: 100vw;
+            margin-top: 2rem;
+            margin-right: 2rem;
+          }
+
+          #intro6 h1 {
+            margin-left: 2rem;
+
+          }
+          #intro6 h3 {
+            margin-left: 2rem;
+            margin-right: 2rem;
+          }
+          #intro6 p {
+            font-weight: 200;
+            margin-left: 2rem;
+            line-height: 1.4rem;
+            margin-right: 2rem;
+          }
+      
         }
     
