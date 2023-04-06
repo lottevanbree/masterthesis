@@ -26,13 +26,13 @@ const pPlaylistTitles = {  // Personalized playlists
 
   const npPlaylistTitles = {
     "pop": [
-      "Top Pop Hits of All Time", "The Ultimate Pop Playlist", "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix" ],
+      "Top Pop Hits of All Time", "The Ultimate Pop Playlist", "Best Pop Songs of 2023", "Classic Pop Anthems", "Pop Party Mix" ],
     "rock": ["Greatest Rock Hits of All Time", "The Ultimate Rock Playlist","Best Classic Rock Songs", "Hard Rock Anthems","Rock Road Trip Mix" ],
     "R&B": ["Top R&B Hits of All Time","The Ultimate R&B Playlist", "Best R&B Songs of the Decade",  "Classic R&B Anthems", "R&B Party Mix" ],
     "electronic": ["Top Electronic Hits of All Time", "The Ultimate Electronic Playlist", "Best Electronic Songs of the Decade","Classic Electronic Anthems","Electronic Party Mix"],
-    "classical": ["The Best of Beethoven", "Mozart for Studying","Classical Relaxation","Baroque Favorites","Romantic Era Masterpieces"
+    "classical": ["The Best of Beethoven", "Mozart for Studying","Classical Relaxation","Piano Favorites","Romantic Era Masterpieces"
     ],
-    "dance": ["Top Dance Hits of All Time", "The Ultimate Dance Playlist","Best Dance Songs of the Decade", "Classic Dance Anthems","Dance Party Mix"
+    "dance": ["Top Dance Hits of 2023", "The Ultimate Dance Playlist","Best Dance Songs of the Decade", "Classic Dance Anthems","Dance Party Mix"
     ],
     "jazz": [ "Top Jazz Hits of All Time","The Ultimate Jazz Playlist","Best Jazz Songs of the Decade", "Classic Jazz Anthems","Jazz Party Mix"
     ],
