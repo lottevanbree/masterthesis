@@ -17,24 +17,22 @@
           <div class="column1">
             <div class="icon-done"><iconify-icon icon="fluent-mdl2:completed" height="30"  style="color: #1ad760; padding-top: 5rem; text-align: center;"></iconify-icon></div>
             <h1>Survey succesfully completed</h1>  
-            <p>Thank you very much for taking the time to participate in my master thesis survey. Your valuable input is crucial to the success of my research, and I deeply appreciate your contribution. Your responses will be used to gain a better understanding of the topic, and I hope the findings will be insightful and beneficial. Once again, thank you for your participation and support in my academic journey.</p></div>
+            <p>Thank you very much for taking the time to participate in my master thesis survey. Your valuable input is crucial to the success of my research, and I deeply appreciate your contribution. Your responses will be used to gain a better understanding of the topic, and I hope the findings will be insightful and beneficial. Once again, thank you for your participation and support in my academic journey.<br><br>Feel free to use the form on this page in case you have any questions, comments or feedback. You can also contact me (Lotte van Bree) via <a style="color: white;"href="mailto:valo21io@student.ju.se">valo21io@student.ju.se</a> or contact my supervisor via <a style="color: white;" href="mailto:m.p.graus@gmail.com">m.p.graus@gmail.com</a>.</div>
 
               <form id="myForm">
-                <label for="name" style="font-size: 0.95rem; font-weight: 600;">Name*</label>
+                <label for="name" style="font-size: 0.95rem; font-weight: 600;">Name</label>
                 <input type="text" id="name" name="name" required placeholder="Enter your name" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"><br><br>
                 
-                <label for="email" style="font-size: 0.95rem; font-weight: 600;">Email*</label>
+                <label for="email" style="font-size: 0.95rem; font-weight: 600;">Email</label>
                 <input type="email" id="email" name="email" required placeholder="youremail@example.com" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"><br><br>
                 
-                <label for="feedback" style="font-size: 0.95rem; font-weight: 600;">Feedback*</label>
+                <label for="feedback" style="font-size: 0.95rem; font-weight: 600;">Feedback</label>
                 <textarea id="feedback" name="message" rows="4" required placeholder="Write your feedback or comments here" style="font-family: sans-serif; padding: 0.6rem;font-size: 0.9rem; margin-top: 0.3rem;"></textarea><br><br>
                 
                 <button id="submitButton" type="submit" value="Submit" onclick="validateForm()">Submit</button>
               </form>
               
         </div>
-        <!--<div class="contact" style="font-size: 0.7rem; line-height: 0.9rem;">In case of any questions feel free to contact me (Lotte van Bree) via <br> <a style="color: white;"href="mailto:valo21io@student.ju.se">valo21io@student.ju.se</a> or contact my supervisor via <a style="color: white;" href="mailto:m.p.graus@gmail.com">m.p.graus@gmail.com</a>.
-        </div>-->
     </main>
   <script> 
     function validateForm(event) {

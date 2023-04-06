@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <main>
+        <div class="progress">
+          <iconify-icon icon="vaadin:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+          <hr>
+          <iconify-icon icon="lucide:circle-dot" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
+        </div>
+        <div id="intro" class="break">
+            <h1>Survey - part III</h1> 
+            <h3>Second round <br></h3> 
+            <p>
+              In the next part of the survey, you will get to see a new selection of four playlists, each with a picture and a title. After you pick one, we will ask you some questions about it. Once again, you will have to choose the playlist that seems most appealing to you. After you have made your choice, we will ask you a set of questions related to the playlist you have selected. 
+            </p><br><br>
+              <table>
+                <tr class="backtable">
+                  <th id="likert">Questions</th>
+                  <th> </th>
+                  <th>  </th>
+                  <th> </th>
+                  <th> </th>
+                </tr>
+                <tr class="backtable-soft question">
+                <td class="question-text pBq1 ">What is your age?</td>
+                <td class="breakAnswer"><input type="radio" name="age" value="under 18">Under 18</td>
+                <td class="breakAnswer"><input type="radio" name="age" value="18-34">18-34</td>
+                <td class="breakAnswer"><input type="radio" name="age" value="35-54">35-54</td>
+                <td class="breakAnswer"><input type="radio" name="age" value="55+">55+</td>
+                </tr>
+                <tr class="backtable question">
+                  <td class="question-text pBq2 ">What is your gender</td>
+                  <td class="breakAnswer"><input type="radio" name="gender" value="Man">Man</td>
+                  <td class="breakAnswer"><input type="radio" name="gender" value="Woman">Woman</td>
+                  <td class="breakAnswer"><input type="radio" name="gender" value="Other">Other</td>
+                  <td class="breakAnswer"><input type="radio" name="gender" value="Non">Prefer not to say</td>
+                </tr>
+                <tr class="backtable-soft question">
+                  <td class="question-text pBq3 ">What is your highest level of education?</td>
+                  <td class="breakAnswer"><input type="radio" name="education" value="Hs">High school</td>
+                  <td class="breakAnswer"><input type="radio" name="education" value="Bs">Bachelor's degree</td>
+                  <td class="breakAnswer"><input type="radio" name="education" value="Ms">Master's degree</td>
+                  <td class="breakAnswer"><input type="radio" name="education" value="Phd">PhD</td>
+                </tr>
+                <tr class="backtable question">
+                  <td class="question-text  pBq4">How long have you been active on any kind of music streaming service?</td>
+                  <td class="breakAnswer"><input type="radio" name="streaming" value="-1">Less than 1 year</td>
+                  <td class="breakAnswer"><input type="radio" name="streaming" value="1_2">1 to 2 years</td>
+                  <td class="breakAnswer"><input type="radio" name="streaming" value="2_3">2 to 3 years</td>
+                  <td class="breakAnswer"><input type="radio" name="streaming" value="3+">More than 3 years</td>
+                </tr>           
+               <!-- <tr class="backtable-soft">
+                  <td class="question-text question p5q4">What music streaming service(s) do you currently use?</td>
+                  <td class="breakAnswer"><input type="checkbox" name="streaming" value="Spotify">Spotify</td>
+                  <td class="breakAnswer"><input type="checkbox" name="streaming" value="Youtube">Youtube Music</td>
+                  <td class="breakAnswer"><input type="checkbox" name="streaming" value="AppleMusic">Apple Music</td>
+                  <td class="breakAnswer"><input type="checkbox" name="streaming" value="Other">Other</td>
+                </tr>    -->            
+              </table>
+            
+            <a onclick="PreSubForm(); fn2()"><button>Continue</button></a> 
+        </div>                
+    </main>
+	<script src="index.js"></script>
+  <script>
+
+function PreSubForm() {
+          const inputChoiceI = document.querySelectorAll('input:checked');
+          const values = [];
+
+          inputChoiceI.forEach(input => {
+            values.push(`${encodeURIComponent(input.name)}=${encodeURIComponent(input.value)}`);
+          });
+
+          const formData = values.join('&');
+
+          sessionStorage.setItem('pageBreakFormData', formData);
+        }
+
+function fn2() {
+        let selectedNumber = 0;
+        const table = document.querySelector('table');
+        const rows = document.querySelectorAll('.question');
+
+        for (let i = 0; i < rows.length; i++) {
+          const inputs = rows[i].querySelectorAll('input[type="radio"]');
+          
+          for (let j = 0; j < inputs.length; j++) {
+            if (inputs[j].checked) {
+              selectedNumber++;
+              console.log(selectedNumber);
+            }
+          }
+        }
+
+        if (selectedNumber <= (rows.length-1)) {
+          alert("Please make sure all sections are filled in.");
+          console.log(selectedNumber);
+        } 
+        function IIIorIV() {
+              const randomNum = Math.random();
+              if (randomNum < 0.5) {
+                window.location.href = "index4III.html";
+              } else {
+                window.location.href = "index4IV.html";
+              }
+            };
+
+        if (selectedNumber == (rows.length)) {
+          // All questions have been answered;
+          IIIorIV();
+        } else {
+          console.log("fail")
+        }
+      }
+
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+  </body>
+</html>

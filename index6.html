@@ -35,7 +35,7 @@
         <iconify-icon icon="vaadin:dot-circle" style="color: #1ad760;vertical-align: middle;" width="10"></iconify-icon>
       </div>
       <div id="intro6">
-        <h1>Survey - part III</h1>  
+        <h1>Survey - part IV</h1>  
         <h3>General questions regarding personalisation</h3>
         <p class="index2">The final section of the survey consists of a few questions regarding your own experiences within music streaming platforms. Once you have answered these questions, you can submit your responses and your participation will be complete.</p>
        <form id="myForm">
@@ -173,11 +173,13 @@
     var page5iFormData = sessionStorage.getItem("page5iFormData");
     var page5_2FormData = sessionStorage.getItem("page5-2FormData");
     var page5i_2FormData = sessionStorage.getItem("page5i-2FormData");
+    var pageBreakFormData = sessionStorage.getItem("pageBreakFormData");
+    
 
     console.log(page5FormData);
     var page6FormData = $("#myForm").serialize();
     
-    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData + '&Time=' + timeTaken;
+    var formData = page4I_IIFormData + '&' + page4III_IVFormData + '&' + page5FormData + '&' + page5iFormData + '&' + page5_2FormData + '&' + page5i_2FormData + '&' + page6FormData + '&Time=' + timeTaken + '&' + pageBreakFormData;
     console.log(formData);
     $.ajax({
       url: "https://api.apispreadsheets.com/data/tpuWkFSUb3NPqdAD/",
