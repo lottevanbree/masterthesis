@@ -725,7 +725,7 @@ button:hover {
             padding-top: 2rem;
             position: relative;
             top: 80%;
-            left: 50%;
+            left: 40%;
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
@@ -744,15 +744,21 @@ button:hover {
             -webkit-transform: translate(-50%, -50%);
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            padding-bottom: 5rem;
           }
 
           .centermiddleChoice5II #intro5 {
             margin-top: 40vh;
+            margin-bottom: 5rem;
           }
 
           .centermiddleChoice5II #intro5 p {
             max-width: 90vw;
           }
+          .intro5II {
+            margin-bottom: 5rem;
+          }
+
 
           .gridMobile{
             display: grid;
@@ -774,6 +780,11 @@ button:hover {
 
           .gridMobile #item4 {
             grid-column: 2;
+          }
+          #intro5 .buttonII {
+            grid-column: 1;
+            max-width: 8rem;
+            margin-left: 2rem;
           }
 
               /*page 6*/
@@ -800,6 +811,8 @@ button:hover {
           #intro7 {
             margin-top: 8rem;
           }
-
+          main {
+            padding-bottom: 5rem;
+          }
         }
     
