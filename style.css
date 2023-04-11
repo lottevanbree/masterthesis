@@ -561,7 +561,7 @@ button:hover {
         }
 
         #intro5 .questionsII {
-          margin-top: 23rem;
+          margin-top: 28rem;
         }
         
           #intro {
@@ -764,6 +764,7 @@ button:hover {
             display: grid;
             grid-template-columns: 1fr 1fr;
             width: 100vw;
+            margin-top: 2rem;
           }
 
           .gridMobile #item1 {
