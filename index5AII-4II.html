@@ -140,7 +140,7 @@ function PreSubForm() {
           sessionStorage.setItem('page5iFormData', formData);
         }
 
-          function fn2() {
+        function fn2() {
         let selectedNumber = 0;
         const table = document.querySelector('table');
         const rows = document.querySelectorAll('.question');
@@ -157,15 +157,11 @@ function PreSubForm() {
         }
 
         if (selectedNumber < (rows.length-1)) {
-          alert("Please make sure all sections are filled in.");
-          console.log(selectedNumber);
-        } 
-        if (selectedNumber < (rows.length-1)) {
               alert("Please make sure all sections are filled in.");
               console.log(selectedNumber);
             } 
 
-            if (selectedNumber === (rows.length-1)) {
+            if (selectedNumber === (rows.length)) {
               window.location.href = "index-break.html";
             } else {
               console.log("fail")
