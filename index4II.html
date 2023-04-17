@@ -84,6 +84,14 @@
         window.location.href = "index5AI-4II.html";
       });
     });
+
+    function PreSubForm(clickedElem) {
+        const input = clickedElem.querySelector('input');
+        const name = encodeURIComponent(input.name);
+        const value = encodeURIComponent(input.value);
+        const formData = `${name}=${value}`;
+        sessionStorage.setItem('page4I_IIFormData', formData);
+      }
 /*
 const npPlaylistTitles = [ //non personalized titles
     "Top Pop Hits of All Time", "The Ultimate Pop Playlist",  "Best Pop Songs of the Decade", "Classic Pop Anthems", "Pop Party Mix", "Greatest Rock Hits of All Time", "The Ultimate Rock Playlist", "Best Classic Rock Songs", "Hard Rock Anthems", "Rock Road Trip Mix", "Top Hip Hop Hits of All Time", "The Ultimate Hip Hop Playlist",  "Best Hip Hop Songs of the Decade",  "Classic Hip Hop Anthems", "Hip Hop Party Mix", "Top Electronic Hits of All Time", "The Ultimate Electronic Playlist",  "Best Electronic Songs of the Decade", "Classic Electronic"
